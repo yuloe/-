@@ -47,7 +47,13 @@ function CalResult(num1,operator,num2){
   }
 }
 
-function MixComputing(num1,operator1,num2,operator2,num3){
+// generate mixed calculation formula
+function GenerateMixComputing(){
+  var num1 = RandomNum(1,100)
+  var num2 = RandomNum(1,100)
+  var num3 = RandomNum(1,100)
+  var operator1 = RandomNum(0,3)
+  var operator2 = RandomNum(0,3)
   var priority = 
   [ //       +  -  *  /
     /* + */ [0, 0,-1,-1],
@@ -56,19 +62,59 @@ function MixComputing(num1,operator1,num2,operator2,num3){
     /* / */ [1, 1, 0, 0]
   ]
   if(priority[operator1][operator2] < 0){
-    num2 = CalResult(num2,operator2,num3)
+    if(operator2 == 3){
+      var obj = GenerateDiv()
+      var num2 = obj.num1
+      var num3 = obj.num2
+    }
+    else if(operator2 == 2){
+      num2 = RandomNum(1,9)
+      num3 = RandomNum(1,9)
+    }
     return {
-      num1:num1,
-      opt:operator1,
-      num2:num2
+      question_type:6,
+      expression:String(num1) + OptToString(operator1) + String(num2) + OptToString(operator2) + String(num3) + "=",
+      result:CalResult(num1,operator1,CalResult(num2,operator2,num3))
     }
   }
   else{
-    num2 = CalResult(num1,operator1,num2)
+    if(operator1 == 3 && operator2 == 3){
+      var obj = GenerateDiv()
+      var num1 = obj.num1
+      var num2 = obj.num2
+      var midResult = CalResult(num1,operator1,num2)
+      while((!JudgeDivide(midResult,num3)) || ((midResult/num3) >= 10)){
+        num3 = RandomNum(1,9)
+      }
+    }
+    else if(operator2 == 3){  // if operator2 is ÷ and the priority is no prior than operator1, than operator1 must be X
+      num1 = RandomNum(1,9)
+      num2 = RandomNum(1,9)
+      var midResult = CalResult(num1,operator1,num2)
+      while((!JudgeDivide(midResult,num3)) || ((midResult/num3) >= 10)){
+        num3 = RandomNum(1,9)
+     }
+    }
+    else if(operator1 == 3){
+      var obj = GenerateDiv()
+      var num1 = obj.num1
+      var num2 = obj.num2
+      if(operator2 == 2 ){
+        num3 = RandomNum(1,9)
+      }
+    }
+    else if(operator1 == 2){
+      num1 = RandomNum(1,9)
+      num2 = RandomNum(1,9)
+      if(operator2 == 2 ){
+        num3 = RandomNum(1,9)
+      }
+    }
     return {
-      num1:num2,
-      opt:operator2,
-      num2:num3}
+      question_type:6,
+      expression:String(num1) + OptToString(operator1) + String(num2) + OptToString(operator2) + String(num3) + "=",
+      result:CalResult(CalResult(num1,operator1,num2),operator2,num3)
+    }
   }
 }
 
@@ -144,23 +190,10 @@ function GenerateQuestion(type){
       var operator = obj.opt
       var num2 = obj.num2
       break
-    // unsolved mixed computing
+
     case 6:
-      var num1 = RandomNum(1,100)
-      var num2 = RandomNum(1,100)
-      var num3 = RandomNum(1,100)
-      var operator1 = RandomNum(0,3)
-      if(operator1 == 3){
-        var obj = GenerateDiv()
-        var num1 = obj.num1
-        var num2 = obj.num2
-      }
-      var operator2 = RandomNum(0,3)
-      var obj = MixComputing(num1,operator1,num2,operator2,num3)
-      num1 = obj.num1
-      var operator = obj.opt
-      num2 = obj.num2
-      break
+      var question = GenerateMixComputing()
+      return question
     case 7:
       var num1 = RandomNum(1,100)
       var operator = RandomNum(0,1)
@@ -212,5 +245,5 @@ function GenerateQuestion(type){
 }
 
 while(true){
-  console.log(GenerateQuestion(RandomNum(1,9)))
+  console.log(GenerateQuestion(6))
 }
