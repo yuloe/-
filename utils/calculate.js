@@ -227,12 +227,9 @@ function GenerateQuestion(type){
           var num2 = RandomNum(1,9)*(10**RandomNum(0,1))
           break
         case 3:
-          var num1 = RandomNum(12,99)*(10**RandomNum(0,2))
-          var num2 = RandomNum(1,9)
-          while(!JudgeDivide(num1,num2)){
-            num1 = RandomNum(12,99)*(10**RandomNum(0,2))
-            num2 = RandomNum(1,9)
-          }
+          var obj = GenerateDiv()
+          var num1 = obj.num1*(10**RandomNum(0,2))
+          var num2 = obj.num2
           break
         default:
           break
@@ -257,5 +254,5 @@ function GenerateQuestionByMode(mode){
 }
 
 while(true){
-  console.log(GenerateQuestion(6))
+  console.log(GenerateQuestion(RandomNum(9,9)))
 }
