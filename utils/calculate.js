@@ -193,6 +193,9 @@ function GenerateQuestion(type){
 
     case 6:
       var question = GenerateMixComputing()
+      while(question.result < 0){
+        question = GenerateMixComputing()
+      }
       return question
     case 7:
       var num1 = RandomNum(1,100)
