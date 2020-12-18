@@ -1,23 +1,29 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/me/me",
+    "pages/test/test"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [{
-      "pagePath": "/pages/index/index",
-      "text": "text",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
-    },{
-      "pagePath": "/pages/me/me"
-    }]
+        "pagePath": "pages/index/index",
+        "text": "每日练习"
+      }, {
+        "pagePath": "pages/test/test",
+        "text": "限时训练"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
