@@ -15,6 +15,22 @@ function JudgeDivide(num1, num2){
   return (num1%num2)?false:true;
 }
 
+// generate dividable number
+function GenerateDiv()
+{
+  var num1 = RandomNum(1,81)
+  var num2 = RandomNum(1,9)
+  while((!JudgeDivide(num1,num2)) || ((num1/num2) >= 10)){
+    num1 = RandomNum(1,81)
+    num2 = RandomNum(1,9)
+  }
+  return {
+    num1:num1,
+    opt:3,
+    num2:num2
+  }
+}
+
 // calculate result
 function CalResult(num1,operator,num2){
   switch (operator) {
@@ -28,6 +44,31 @@ function CalResult(num1,operator,num2){
       return num1/num2
     default:
       return 0
+  }
+}
+
+function MixComputing(num1,operator1,num2,operator2,num3){
+  var priority = 
+  [ //       +  -  *  /
+    /* + */ [0, 0,-1,-1],
+    /* - */ [0, 0,-1,-1],
+    /* * */ [1, 1, 0, 0],
+    /* / */ [1, 1, 0, 0]
+  ]
+  if(priority[operator1][operator2] < 0){
+    num2 = CalResult(num2,operator2,num3)
+    return {
+      num1:num1,
+      opt:operator1,
+      num2:num2
+    }
+  }
+  else{
+    num2 = CalResult(num1,operator1,num2)
+    return {
+      num1:num2,
+      opt:operator2,
+      num2:num3}
   }
 }
 
@@ -98,25 +139,28 @@ function GenerateQuestion(type){
       var operator = 2
       break
     case 5:
-      var num1 = RandomNum(1,81)
-      var num2 = RandomNum(1,9)
-      var operator = 3
-      while((!JudgeDivide(num1,num2)) || ((num1/num2) >= 10)){
-        num1 = RandomNum(1,81)
-        num2 = RandomNum(1,9)
-      }
+      var obj = GenerateDiv()
+      var num1 = obj.num1
+      var operator = obj.opt
+      var num2 = obj.num2
       break
     // unsolved mixed computing
     case 6:
-      var num1 = RandomNum(1,9)
+      var num1 = RandomNum(1,100)
+      var num2 = RandomNum(1,100)
+      var num3 = RandomNum(1,100)
       var operator1 = RandomNum(0,3)
-      var oprator2 = RandomNum(0,3)
-      var question = {
-        question_type:type,
-        expression:String(num1) + OptToString(3) + String(num2) + "=",
-        result:CalResult(num1,3,num2)
+      if(operator1 == 3){
+        var obj = GenerateDiv()
+        var num1 = obj.num1
+        var num2 = obj.num2
       }
-      return question
+      var operator2 = RandomNum(0,3)
+      var obj = MixComputing(num1,operator1,num2,operator2,num3)
+      num1 = obj.num1
+      var operator = obj.opt
+      num2 = obj.num2
+      break
     case 7:
       var num1 = RandomNum(1,100)
       var operator = RandomNum(0,1)
