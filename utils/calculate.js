@@ -95,19 +95,23 @@ function GenerateMixComputing(){
         num3 = RandomNum(1,9)
      }
     }
-    else if(operator1 == 3){
+    else if(operator1 == 3){  // opt1 is ÷
       var obj = GenerateDiv()
       var num1 = obj.num1
       var num2 = obj.num2
-      if(operator2 == 2 ){
+      if(operator2 == 2 ){  // and opt2 is X
         num3 = RandomNum(1,9)
       }
     }
-    else if(operator1 == 2){
+    else if(operator1 == 2){ // opt1 is X
       num1 = RandomNum(1,9)
       num2 = RandomNum(1,9)
-      if(operator2 == 2 ){
-        num3 = RandomNum(1,9)
+      if(operator2 == 2 ){  // and opt2 is X, make sure only calculate numbers in multiplication table
+        while (CalResult(num1, operator1, num2) > 9){
+          num1 = RandomNum(1,9)
+          num2 = RandomNum(1,9)
+        }
+        num3 = RandomNum(1,9) 
       }
     }
     return {
@@ -134,10 +138,10 @@ function OptToString(opt){
   }
 }
 
-//generate a question decided by the type
+// generate a question decided by the type
 function GenerateQuestion(type){
   switch (type) {
-    case 1: 
+    case 1: // Add and subtract within 10
       var num1 = RandomNum(0,10)
       var operator = RandomNum(0,1)
       switch (operator) {
@@ -151,7 +155,7 @@ function GenerateQuestion(type){
           break
       }
       break
-    case 2:
+    case 2: // Add and subtract within 20
       var num1 = RandomNum(10,20)
       var operator = RandomNum(0,1)
       switch (operator) {
@@ -165,7 +169,7 @@ function GenerateQuestion(type){
           break
       }
       break
-    case 3:
+    case 3: // Add and subtract within 100
       var num1 = RandomNum(20,100)
       var operator = RandomNum(0,1)
       switch (operator) {
@@ -179,25 +183,24 @@ function GenerateQuestion(type){
           break
       }
       break
-    case 4:
+    case 4: // Multiplication in the multiplication table
       var num1 = RandomNum(1,9)
       var num2 = RandomNum(1,9)
       var operator = 2
       break
-    case 5:
+    case 5: // Division within the multiplication table
       var obj = GenerateDiv()
       var num1 = obj.num1
       var operator = obj.opt
       var num2 = obj.num2
       break
-
-    case 6:
+    case 6: // Mixed computing
       var question = GenerateMixComputing()
       while(question.result < 0){
         question = GenerateMixComputing()
       }
       return question
-    case 7:
+    case 7: // Add and subtract within 10000
       var num1 = RandomNum(1,100)
       var operator = RandomNum(0,1)
       switch (operator) {
@@ -212,11 +215,11 @@ function GenerateQuestion(type){
           break
       }
       break
-    case 8:
+    case 8: // Multiple digits by one digit
       var num1 = RandomNum(0,200)
       var num2 = RandomNum(0,9)
       break
-    case 9:
+    case 9: // Complex multiplication and division
       var operator = RandomNum(2,3)
       switch (operator) {
         case 2:
@@ -239,12 +242,18 @@ function GenerateQuestion(type){
       window.alert("Error: Expression generate error!\n")
       return
   }
+  // generate one operator question according to the data before
   var question = {
     question_type:type,
     expression:String(num1) + OptToString(operator) + String(num2) + "=",
     result:CalResult(num1,operator,num2)
   }
   return question
+}
+
+// generate questions according to the mode
+function GenerateQuestionByMode(mode){
+  return(GenerateQuestion(mode[RandomNum(0,mode.length - 1)]))
 }
 
 while(true){
