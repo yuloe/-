@@ -253,6 +253,9 @@ function GenerateQuestionByMode(mode){
   return(GenerateQuestion(mode[RandomNum(0,mode.length - 1)]))
 }
 
-while(true){
-  console.log(GenerateQuestion(RandomNum(9,9)))
+var test = true
+if(test){
+  while(true){
+    console.log(GenerateQuestion(RandomNum(1,9)))
+  }
 }
