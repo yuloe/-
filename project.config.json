@@ -40,13 +40,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.14.1",
-<<<<<<< HEAD
   "appid": "wxc44cee2b51b2ecc6",
-  "projectname": "catcalculate",
-=======
-  "appid": "wx0428b080da94ff5c",
   "projectname": "%E5%B0%8F%E7%8C%AB%E5%8F%A3%E7%AE%97",
->>>>>>> f599d0bcb0ae873bbe4a40ee069f2658be1b2659
   "debugOptions": {
     "hidedInDevtools": []
   },

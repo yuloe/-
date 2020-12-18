@@ -1,19 +1,4 @@
 {
-<<<<<<< HEAD
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
-}
-=======
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
@@ -43,4 +28,3 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
->>>>>>> f599d0bcb0ae873bbe4a40ee069f2658be1b2659
