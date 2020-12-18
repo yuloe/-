@@ -1,5 +1,5 @@
 // judge user answer
-function JudgeUserAnswer(question,userAnswer){
+function JudgeUserAnswer(question, userAnswer){
   if(question.result == userAnswer){
     return true
   }
@@ -53,4 +53,10 @@ function SetWrongSet(json){
 function GetRandomWrongQuestion(){
   var json = GetWrongSet()
   return json[RandomNum(0,GetJSONLength(json))]
+}
+
+// get an ordered wrong question
+function GetOrderedWrongQuestion(order){
+  var json = GetWrongSet()
+  return json[order]
 }
