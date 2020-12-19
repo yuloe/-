@@ -1,3 +1,4 @@
+// import outsize functions
 const {GetWrongSet,SetWrongSet,GetJSONLength,RefreshWrongSet} = require("./answerhandler.js")
 const {GetEvedayLog,ChangeEverydayLog} = require("./everydayquetion.js")
 
