@@ -19,9 +19,10 @@
 .rank {
   display: flex;
 
-  width: 250rpx;
+  width: 300rpx;
   height: 10vh;
   border-radius: 20rpx;
+  font-size: 24px;
 
   justify-content: center;
   align-items: center;
@@ -32,9 +33,9 @@
 
   width: 250rpx;
   height: 10vh;
-  border: 1px solid #aaa;
+  border: 1px solid #d88a63;
   border-radius: 20rpx;
-  background-color: #2ec2ba;
+  background-color: #f5b619;
 
   justify-content: center;
   align-items: center;
@@ -47,6 +48,7 @@
   flex-wrap: wrap;
 
   width: 650rpx;
+  margin-top: 5vh;
 
   border: 1px solid #FFFFFF;
   border-radius: 25rpx;
@@ -66,8 +68,9 @@
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px solid #d88a63;
+  border-radius: 20rpx;
+  background-color: #f5b619;
 
   text-align: center;
 }

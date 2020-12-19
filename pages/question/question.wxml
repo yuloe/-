@@ -2,7 +2,7 @@
 <view class="container">
   <view class="timer">倒计时 {{time}}</view>
   <view class="progress">
-    <text>做题进度 {{finished}}/{{questionNum}}</text> 
+    <text>做题进度 {{finished}}/{{questionNum}}</text>
     <progress percent="{{finished/questionNum}}" show-info="true" font-size="12px" border-radius="3px"
       activeColor="black"></progress></view>
   <view class="question">
@@ -34,7 +34,9 @@
     <view class="keyboardButton" id="6" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num6.png"></image>
     </view>
-    <view class="keyboardButton submit" bindtap="submit">O</view>
+    <view class="keyboardButton submit" bindtap="submit">
+      <image src="/static/keyboard/submit1.png"></image>
+    </view>
     <view class="keyboardButton" id="7" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num7.png"></image>
     </view>

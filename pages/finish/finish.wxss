@@ -1,0 +1,35 @@
+/* pages/finish/finish.wxss */
+.text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  width: 1000rpx;
+  height: 90rpx;
+  margin-top: 10vh;
+}
+.grade{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  width: 600rpx;
+  height: 90rpx;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.confirm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  width: 250rpx;
+  height: 90rpx;
+  border: 1px solid #da8255;
+  border-radius: 30rpx;
+  background-color: #d88a63;
+}

@@ -1,24 +1,24 @@
 <view class="container">
-  <image src="/static/background.png"></image>
+  <image src="/static/background1.png"></image>
   <view class="rank">
     <view class="rankInfo">一年级</view>
-    <view class="choose" id="[1]" bindtap="typeTap"><text>10以内加减法</text></view>
-    <view class="choose" id="[2]" bindtap="typeTap"><text>20以内加减法</text></view>
-    <view class="choose" id="[3]" bindtap="typeTap"><text>100以内加减法</text></view>
-    <view class="choose" id="[1,2,3]" bindtap="typeTap"><text>一年级综合</text></view>
+    <view class="choose" id="[1]" bindtap="typeTap" style="background-color: #fa8072"><text>10以内加减法</text></view>
+    <view class="choose" id="[2]" bindtap="typeTap" style="background-color: #ffa500"><text>20以内加减法</text></view>
+    <view class="choose" id="[3]" bindtap="typeTap" style="background-color: #98fb98"><text>100以内加减法</text></view>
+    <view class="choose" id="[1,2,3]" bindtap="typeTap" style="background-color: #afeeee"><text>一年级综合</text></view>
   </view>
   <view class="rank">
     <view class="rankInfo">二年级</view>
-    <view class="choose" id="[4]" bindtap="typeTap"><text>表内乘法</text></view>
-    <view class="choose" id="[5]" bindtap="typeTap"><text>表内除法</text></view>
-    <view class="choose" id="[6]" bindtap="typeTap"><text>混合运算</text></view>
-    <view class="choose" id="[4,5,6]" bindtap="typeTap"><text>二年级综合</text></view>
+    <view class="choose" id="[4]" bindtap="typeTap" style="background-color: #ffbbff"><text>表内乘法</text></view>
+    <view class="choose" id="[5]" bindtap="typeTap" style="background-color: #00bfff"><text>表内除法</text></view>
+    <view class="choose" id="[6]" bindtap="typeTap" style="background-color: #8470ff"><text>混合运算</text></view>
+    <view class="choose" id="[4,5,6]" bindtap="typeTap" style="background-color: #ffff00"><text>二年级综合</text></view>
   </view>
   <view class="rank">
     <view class="rankInfo">三年级</view>
-    <view class="choose" id="[7]" bindtap="typeTap"><text>万以内加减法</text></view>
-    <view class="choose" id="[8]" bindtap="typeTap"><text>多位数乘一位数</text></view>
-    <view class="choose" id="[9]" bindtap="typeTap"><text>复杂乘除</text></view>
-    <view class="choose" id="[7,8,9]" bindtap="typeTap"><text>三年级综合</text></view>
+    <view class="choose" id="[7]" bindtap="typeTap" style="background-color: #87ceeb"><text>万以内加减法</text></view>
+    <view class="choose" id="[8]" bindtap="typeTap" style="background-color: #caff70"><text>多位数乘一位数</text></view>
+    <view class="choose" id="[9]" bindtap="typeTap" style="background-color: #ffdab9"><text>复杂乘除</text></view>
+    <view class="choose" id="[7,8,9]" bindtap="typeTap" style="background-color: #e6e6fa"><text>三年级综合</text></view>
   </view>
 </view>
