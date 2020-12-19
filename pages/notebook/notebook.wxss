@@ -1,0 +1,14 @@
+/* pages/notebook/notebook.wxss */
+.container {
+  display: flex;
+}
+
+.notebook {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  width: 250rpx;
+  padding: 50rpx;
+}

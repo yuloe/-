@@ -1,0 +1,5 @@
+<!--pages/notebook/notebook.wxml-->
+<view class="container">
+  <image src="/static/background1.png"></image>
+  <view class="notebook"><text>错题本</text></view>
+</view>

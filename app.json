@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/notebook/notebook",
     "pages/question/question",
     "pages/finish/finish",
     "pages/index/index",
