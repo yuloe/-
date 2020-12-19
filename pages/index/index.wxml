@@ -12,7 +12,7 @@
   </view>
 
   <view class="plan">
-    <image src="/static/planback.jpg" class="background-image"></image>
+    <!-- <image src="/static/planback.jpg" class="background-image"></image> -->
     <view class="todayPlan">今日计划</view>
     <view class="need2Do">需做</view>
     <view class="review">复习</view>
