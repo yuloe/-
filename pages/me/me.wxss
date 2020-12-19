@@ -56,3 +56,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.info image {
+  position: relative;
+
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 7.5rpx;
+  margin-left: 7.5rpx;
+}

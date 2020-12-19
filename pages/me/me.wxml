@@ -12,10 +12,25 @@
     </block>
   </view>
   <view class="meinfo">
-    <view class="info" id="notebook" style="background-color: #ff4500"><text>错题本</text></view>
-    <view class="info" id="shop" style="background-color: #ffa500"><text>商城</text></view>
-    <view class="info" id="doc" style="background-color: #7fff00"><text>学习资料</text></view>
-    <view class="info" id="guide" style="background-color: #00ffff"><text>使用指南</text></view>
-    <view class="info" id="about" style="background-color: #ee82ee"><text>关于我们</text></view>
+    <view class="info" id="notebook" style="background-color: #ff4500">
+      <image src="/static/notebook.png"></image>
+      <text>错题本</text>
+    </view>
+    <view class="info" id="shop" style="background-color: #ffa500">
+      <image src="/static/shop.png"></image>
+      <text>商城</text>
+    </view>
+    <view class="info" id="doc" style="background-color: #7fff00">
+      <image src="/static/doc.png"></image>
+      <text>学习资料</text>
+    </view>
+    <view class="info" id="guide" style="background-color: #00ffff">
+      <image src="/static/guide.png"></image>
+      <text>使用指南</text>
+    </view>
+    <view class="info" id="about" style="background-color: #ee82ee">
+      <image src="/static/about.png"></image>
+      <text>关于我们</text>
+    </view>
   </view>
 </view>

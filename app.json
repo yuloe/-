@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/me/me",
     "pages/finish/finish",
     "pages/index/index",
     "pages/question/question",
-    "pages/me/me",
     "pages/typeChoose/typeChoose",
     "pages/logs/logs",
     "pages/test/test"
