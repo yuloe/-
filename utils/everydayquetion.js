@@ -1,52 +1,66 @@
 // get everyday question log
+const {
+  GetWrongSet,
+  SetWrongSet,
+  GetJSONLength,
+  RefreshWrongSet,
+  JudgeUserAnswer
+} = require("./answerhandler")
+
 function GetEvedayLog() {
-  wx.getStorage({
-    key: 'everydaylog',
-    success(res) {
-      return res
-    },
-    fail() {
-      console.log("Error: Can not get storage!\n")
-      return -1
+  try {
+    let value = wx.getStorageSync('everydaylog')
+    if (value) {
+      return value
+    } else {
+      SetEvedayLog({
+        needQuestions: 50,
+        needWrongAnswers: Math.min(10, GetJSONLength(GetWrongSet())),
+        time: new Date().getDate()
+      })
+      return GetEvedayLog()
     }
-  })
+  } catch (e) {
+    console.log("Error: Can not get everydaylog storage!\n")
+    console.log(e)
+  }
 }
 
 // set everyday question log
 function SetEvedayLog(everydayLog) {
-  wx.setStorage({
-    data: everydayLog,
-    key: 'everydaylog',
-    fail() {
-      console.log("Error: Can not set storage!\n")
-    }
-  })
+  console.log(everydayLog)
+  try {
+    wx.setStorageSync('everydaylog', everydayLog)
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 // change everyday question log
-function ChangeEverydayLog(needQuestions, needWrongAnswers, time){
+function ChangeEverydayLog(needQuestions, needWrongAnswers, time) {
   var everydayLog = {
-    needQuestions:needQuestions,
-    needWrongAnswers:needWrongAnswers,
+    needQuestions: needQuestions,
+    needWrongAnswers: needWrongAnswers,
     time: new Date().getDate()
   }
   SetEvedayLog(everydayLog)
 }
 
 // refresh everyday question log
-function RefreshEverydayLog(){
+function RefreshEverydayLog() {
   var everydayLog = {
     needQuestions: 0,
     needWrongAnswers: 0,
     time: 0
   }
   everydayLog = GetEvedayLog()
-  if(everydayLog.time != new Date().getDate()){
+  if (everydayLog.time != new Date().getDate()) {
     ChangeEverydayLog(50, 10, new Date().getDate())
   }
 }
 
 module.exports = {
-  GetEvedayLog:GetEvedayLog,
-  ChangeEverydayLog:ChangeEverydayLog
+  GetEvedayLog: GetEvedayLog,
+  ChangeEverydayLog: ChangeEverydayLog,
+  RefreshEverydayLog: RefreshEverydayLog
 }

@@ -1,5 +1,4 @@
 // judge user answer
-
 function JudgeUserAnswer(question, userAnswer) {
   if (question.result == userAnswer) {
     return true
@@ -27,26 +26,27 @@ function GetJSONLength(json) {
 
 // get wrong question set
 function GetWrongSet() {
-  wx.getStorage({
-    key: 'wrongset',
-    success(res) {
-      return res
-    },
-    fail() {
-      console.log("Error: Can not get storage!\n")
+  try{
+    let value = wx.getStorageSync('wrongset')
+    if(value) return value
+    else{
+      SetWrongSet([])
+      return GetWrongSet()
     }
-  })
+  }catch(e){
+    console.log("Error: Can not get wrongset storage!\n")
+    console.log(e)
+  }
 }
 
 // set wrong question set
 function SetWrongSet(wrongSet) {
-  wx.setStorage({
-    data: wrongSet,
-    key: 'wrongset',
-    fail() {
-      console.log("Error: Can not set storage!\n")
-    }
-  })
+  try {
+    wx.setStorageSync('wrongset', wrongSet)
+  } catch (error) {
+    console.log("Error: Can not set wrongSet storage!\n")
+    console.log(error)
+  }
 }
 
 // refresh the wrong question set
@@ -61,8 +61,9 @@ function RefreshWrongSet() {
 }
 
 module.exports = {
-  GetWrongSet:GetWrongSet,
-  SetWrongSet:SetWrongSet,
-  GetJSONLength:GetJSONLength,
-  RefreshWrongSet:RefreshWrongSet
+  GetWrongSet: GetWrongSet,
+  SetWrongSet: SetWrongSet,
+  GetJSONLength: GetJSONLength,
+  RefreshWrongSet: RefreshWrongSet,
+  JudgeUserAnswer: JudgeUserAnswer
 }

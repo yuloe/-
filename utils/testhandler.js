@@ -1,27 +1,34 @@
-const {GetWrongSet,SetWrongSet,GetJSONLength,RefreshWrongSet} = require("./answerhandler.js")
+const {
+  GetWrongSet,
+  SetWrongSet,
+  GetJSONLength,
+  RefreshWrongSet,
+  JudgeUserAnswer
+} = require("./answerhandler.js")
 
 // get test log
 function GetTestLog() {
-  wx.getStorage({
-    key: 'testlog',
-    success(res) {
-      return res
-    },
-    fail() {
-      console.log("Error: Can not get storage!\n")
+  try {
+    let value = wx.getStorageSync('testlog')
+    if(value) return value
+    else{
+      SetTestLog([])
+      return GetTestLog()
     }
-  })
+  } catch (error) {
+    console.log("Error: Can not get testlog storage!\n")
+    console.log(error)
+  }
 }
 
 // set test log
 function SetTestLog(testLog) {
-  wx.setStorage({
-    data: testLog,
-    key: 'testlog',
-    fail() {
-      console.log("Error: Can not set storage!\n")
-    }
-  })
+  try {
+    wx.setStorageSync('testlog', testLog)
+  } catch (e) {
+    console.log("Error: Can not set testlog storage!\n")
+    console.log(e)
+  }
 }
 
 // // get json length
@@ -34,11 +41,15 @@ function SetTestLog(testLog) {
 // }
 
 // add test history
-function AddTestHistory(testHistory){
+function AddTestHistory(testHistory) {
   var testLog = GetTestLog()
   testLog.push(JSON.stringify(testHistory))
-  if(GetJSONLength(testLog) > 4){
-    testLog.splice(0,1)
+  if (GetJSONLength(testLog) > 3) {
+    testLog.splice(0, 1)
   }
   SetTestLog(testLog)
+}
+
+module.exports = {
+  AddTestHistory: AddTestHistory
 }

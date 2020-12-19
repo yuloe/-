@@ -17,7 +17,7 @@
 }
 
 .rankInfo{
-  width: 540%;
+  width: 540rpx;
   height: 1em;
   margin-left: 10rpx;
 }

@@ -1,6 +1,16 @@
 // import outsize functions
-const {GetWrongSet,SetWrongSet,GetJSONLength,RefreshWrongSet} = require("./answerhandler.js")
-const {GetEvedayLog,ChangeEverydayLog} = require("./everydayquetion.js")
+const {
+  GetWrongSet,
+  SetWrongSet,
+  GetJSONLength,
+  RefreshWrongSet,
+  JudgeUserAnswer
+} = require("./answerhandler.js")
+const {
+  GetEvedayLog,
+  ChangeEverydayLog,
+  RefreshEverydayLog
+} = require("./everydayquetion.js")
 
 // generate a randomnum range from minNum to maxNum
 function RandomNum(minNum, maxNum) {
@@ -117,7 +127,7 @@ function GenerateMixComputing() {
     }
     return {
       question_type: 6,
-      expression: String(num1) + OptToString(operator1) + String(num2) + OptToString(operator2) + String(num3) + "=",
+      expression: String(num1) + OptToString(operator1) + String(num2) + OptToString(operator2) + String(num3),
       result: CalResult(CalResult(num1, operator1, num2), operator2, num3)
     }
   }
@@ -244,7 +254,7 @@ function GenerateQuestion(type) {
   // generate one operator question according to the data before
   var question = {
     question_type: type,
-    expression: String(num1) + OptToString(operator) + String(num2) + "=",
+    expression: String(num1) + OptToString(operator) + String(num2),
     result: CalResult(num1, operator, num2)
   }
   return question
@@ -258,7 +268,7 @@ function GenerateQuestionByMode(mode) {
 // get a random wrong question
 function GetRandomWrongQuestion() {
   var wrongSet = GetWrongSet()
-  var questionSequence = RandomNum(0, GetJSONLength(json))
+  var questionSequence = RandomNum(0, GetJSONLength(wrongSet))
   wrongSet[questionSequence].reviewTimes += 1
   var wrongQuestion = wrongSet[questionSequence]
   RefreshWrongSet()
@@ -272,39 +282,48 @@ function GetOrderedWrongQuestion(order) {
 }
 
 // Question function
-function GetQuestion(mode){
+function GetQuestion(mode) {
   var everydayLog = {
     needQuestions: 0,
     needWrongAnswers: 0,
     time: 0
   }
+  console.log(1)
   everydayLog = GetEvedayLog()
-  switch(RandomNum(0,1)){
+  console.log(everydayLog)
+  console.log(2)
+  switch (RandomNum(0, 1)) {
     case 0:
-      if(everydayLog.needWrongAnswers > 0){
+      if (everydayLog.needWrongAnswers > 0) {
         everydayLog.needWrongAnswers--
         var wrongQuestion = GetRandomWrongQuestion()
-        ChangeEverydayLog(needQuestions, needWrongAnswers, new Date().getDate())
+        ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
         return wrongQuestion.question
       }
-    case 1:
-      if(everydayLog.needQuestions > 0){
-        everydayLog.needQuestions--
-        ChangeEverydayLog(needQuestions, needWrongAnswers, new Date().getDate())
-        return GenerateQuestionByMode(mode)
-      }
-      console.log("Have finished all questions Today!\n")
-      break;
-    default:
-      break;
+      case 1:
+        if (everydayLog.needQuestions > 0) {
+          everydayLog.needQuestions--
+          ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
+          return GenerateQuestionByMode(mode)
+        }
+        console.log("Have finished all questions Today!\n")
+        break;
+      default:
+        break;
   }
 }
 
-var test = true
+var test = false
 if (test) {
-  for(var i = 1; i <= 5; i++){
-    var mode = [4,5,6]
+  for (var i = 1; i <= 5; i++) {
+    var mode = [4, 5, 6]
     var question = GenerateQuestionByMode(mode)
     console.log(question)
   }
+}
+
+module.exports = {
+  GetQuestion: GetQuestion,
+  GetOrderedWrongQuestion: GetOrderedWrongQuestion,
+  GenerateQuestionByMode: GenerateQuestionByMode
 }

@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <image src="/static/background3.png"></image>
+  <image src="/static/background1.png"></image>
   <view class="chooseinfo">
     <view class="rank" bindtap="showChooseType"><text>题型选择</text></view>
     <view class="type" bindtap="chooseType"><text>{{}}</text></view>

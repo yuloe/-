@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    typeMode: []
+    typeMode: "[1]"
   }
 })

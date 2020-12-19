@@ -2,51 +2,53 @@
 <view class="container">
   <view class="timer">倒计时 {{time}}</view>
   <view class="progress">
-    <text>做题进度</text>
-    <progress percent="50" show-info="true" font-size="12px" border-radius="3px" activeColor="black"></progress></view>
+    <text>做题进度 {{finished}}/{{questionNum}}</text> 
+    <progress percent="{{finished/questionNum}}" show-info="true" font-size="12px" border-radius="3px"
+      activeColor="black"></progress></view>
   <view class="question">
-    <text>{{question}}</text>
+    <text>{{question.expression}}</text>
     <text id="equal"> = </text>
     <text>{{result}}</text>
   </view>
 
   <view class="keyboard">
     <!-- <image src="/static/keyboard/keyboardBack.png"></image> -->
-    <view class="keyboardButton" id="1">
+    <view class="keyboardButton" id="1" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num1.png"></image>
     </view>
-    <view class="keyboardButton" id="2">
+    <view class="keyboardButton" id="2" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num2.png"></image>
     </view>
-    <view class="keyboardButton" id="3">
+    <view class="keyboardButton" id="3" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num3.png"></image>
     </view>
-    <view class="keyboardButton delete">
+    <view class="keyboardButton delete" bindtap="deleteChar">
       <image src="/static/keyboard/delete.png"></image>
     </view>
-    <view class="keyboardButton" id="4">
+    <view class="keyboardButton" id="4" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num4.png"></image>
     </view>
-    <view class="keyboardButton" id="5">
+    <view class="keyboardButton" id="5" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num5.png"></image>
     </view>
-    <view class="keyboardButton" id="6">
+    <view class="keyboardButton" id="6" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num6.png"></image>
     </view>
-    <view class="keyboardButton submit">O</view>
-    <view class="keyboardButton" id="7">
+    <view class="keyboardButton submit" bindtap="submit">O</view>
+    <view class="keyboardButton" id="7" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num7.png"></image>
     </view>
-    <view class="keyboardButton" id="8">
+    <view class="keyboardButton" id="8" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num8.png"></image>
     </view>
-    <view class="keyboardButton" id="9">
+    <view class="keyboardButton" id="9" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num9.png"></image>
     </view>
-    <view class="keyboardButton" id="0">
+    <view class="keyboardButton" id="0" bindtap="clickKeyBoard">
       <image src="/static/keyboard/num0.png"></image>
     </view>
   </view>
 
-  <view class="quit"><text>退出考试</text></view>
+  <view class="quit"><text>结束测试</text></view>
+  view.
 </view>
