@@ -1,13 +1,12 @@
 // judge user answer
-function JudgeUserAnswer(question, userAnswer){
-  if(question.result == userAnswer){
+function JudgeUserAnswer(question, userAnswer) {
+  if (question.result == userAnswer) {
     return true
-  }
-  else{
+  } else {
     var wrongQuestion = {
-      question:question,
-      userAnswer:userAnswer,
-      reviewTimes:0
+      question: question,
+      userAnswer: userAnswer,
+      reviewTimes: 0
     }
     var json = GetWrongSet()
     json.push(JSON.stringify(wrongQuestion))
@@ -17,57 +16,56 @@ function JudgeUserAnswer(question, userAnswer){
 }
 
 // get json length
-function GetJSONLength(json){
+function GetJSONLength(json) {
   var jsonLength = 0
-  for (var i in json){
+  for (var i in json) {
     jsonLength++
   }
   return jsonLength
 }
 
 // get wrong question set
-function GetWrongSet(){
+function GetWrongSet() {
   wx.getStorage({
     key: 'wrongset',
-    success (res) {
+    success(res) {
       return res
     },
-    fail(){
+    fail() {
       console.log("Error: Can not get storage!\n")
     }
   })
 }
 
 // set wrong question set
-function SetWrongSet(wrongSet){
+function SetWrongSet(wrongSet) {
   wx.setStorage({
     data: wrongSet,
     key: 'wrongset',
-    fail(){
+    fail() {
       console.log("Error: Can not set storage!\n")
     }
   })
 }
 
 // get a random wrong question
-function GetRandomWrongQuestion(){
+function GetRandomWrongQuestion() {
   var wrongSet = GetWrongSet()
-  return wrongSet[RandomNum(0,GetJSONLength(json))]
+  return wrongSet[RandomNum(0, GetJSONLength(json))]
 }
 
 // get an ordered wrong question
-function GetOrderedWrongQuestion(order){
+function GetOrderedWrongQuestion(order) {
   var wrongSet = GetWrongSet()
   return wrongSet[order]
 }
 
 // refresh the wrong question set
-function RefreshWrongSet(){
+function RefreshWrongSet() {
   var wrongSet = GetWrongSet
-  var deleteArray = []
-  for (var i in wrongSet){
-    if (i.reviewTimes == 3){
-      delete i
+  for (var i = GetJSONLength(wrongSet) - 1; i >= 0; i--) {
+    if (wrongSet[i].reviewTimes == 3) {
+      wrongSet.splice(i, 1)
     }
   }
   SetWrongSet(wrongSet)

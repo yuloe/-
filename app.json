@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/me/me",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/typeChoose/typeChoose"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -14,14 +15,20 @@
   "tabBar": {
     "list": [{
         "pagePath": "pages/index/index",
-        "text": "每日练习"
+        "text": "每日练习",
+        "iconPath": "static/index.png",
+        "selectedIconPath": "static/index-selected.png"
       }, {
         "pagePath": "pages/test/test",
-        "text": "限时训练"
+        "text": "限时训练",
+        "iconPath": "static/test.png",
+        "selectedIconPath": "static/test-selected.png"
       },
       {
         "pagePath": "pages/me/me",
-        "text": "我"
+        "text": "我",
+        "iconPath": "static/me.png",
+        "selectedIconPath": "static/me-selected.png"
       }
     ]
   },

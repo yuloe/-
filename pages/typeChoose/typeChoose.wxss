@@ -1,0 +1,35 @@
+.container{
+  display: flex;
+  flex-flow: column;
+}
+
+.rank{
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 550rpx;
+  height: 24vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-right: 100rpx;
+  margin-left: 100rpx;
+  border: 1px solid black;
+}
+
+.rankInfo{
+  width: 540%;
+  height: 1em;
+  margin-left: 10rpx;
+}
+
+.choose{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 250rpx;
+  margin-bottom: 1vh;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  border: 1px solid black;
+}
