@@ -1,4 +1,19 @@
 <view class="container">
   <image src="/static/background.png"></image>
-  
+  <view class="chooseRank">
+    <view class="rank">选择年级</view>
+    <!-- 下拉菜单 -->
+  </view>
+  <view class="startTest">开始考试</view>
+  <view class="testInfo">
+    <view class="history"><text>历史最高：</text>{{historyScore}}</view>
+  </view>
+  <view class="testHistroy">
+    <view><text>时间</text><text>得分</text></view>
+    <view class="testHistroyRecord" wx:for="{{testHistory}}">
+      <text>{{index}}</text>
+      <text>{{item.time}}</text>
+      <text>{{item.score}}</text>
+    </view>
+  </view>
 </view>
