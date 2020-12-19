@@ -3,11 +3,18 @@
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
-      <image style=".left" bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text style=".left" class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="namecoin">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <view class="coin"><text>金币：</text></view>
+      </view>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="meinfo">
+    <view class="notebook"><text>错题本</text></view>
+    <view class="shop"><text>商城</text></view>
+    <view class="document"><text>学习资料</text></view>
+    <view class="guide"><text>使用指南</text></view>
+    <view class="about"><text>关于我们</text></view>
   </view>
 </view>
