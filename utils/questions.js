@@ -272,6 +272,7 @@ function GetRandomWrongQuestion() {
   var questionSequence = RandomNum(0, GetJSONLength(wrongSet))
   wrongSet[questionSequence].reviewTimes += 1
   var wrongQuestion = wrongSet[questionSequence]
+  SetWrongSet(wrongSet)
   RefreshWrongSet()
   return wrongQuestion
 }
@@ -289,10 +290,8 @@ function GetQuestion(mode) {
     needWrongAnswers: 0,
     time: 0
   }
-  console.log(1)
   everydayLog = GetEvedayLog()
   console.log(everydayLog)
-  console.log(2)
   switch (RandomNum(0, 1)) {
     case 0:
       if (everydayLog.needWrongAnswers > 0) {
@@ -301,16 +300,16 @@ function GetQuestion(mode) {
         ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
         return wrongQuestion.question
       }
-      case 1:
-        if (everydayLog.needQuestions > 0) {
-          everydayLog.needQuestions--
-          ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
-          return GenerateQuestionByMode(mode)
-        }
-        console.log("Have finished all questions Today!\n")
-        break;
-      default:
-        break;
+    case 1:
+      if (everydayLog.needQuestions > 0) {
+        everydayLog.needQuestions--
+        ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
+        return GenerateQuestionByMode(mode)
+      }
+      console.log("Have finished all questions Today!\n")
+      break;
+    default:
+      break;
   }
 }
 
