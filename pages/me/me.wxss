@@ -16,7 +16,7 @@ body {
   width: 700rpx;
   height: 20vh;
   padding: 25rpx;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid white;
 }
 
 .userinfo-avatar {
@@ -44,57 +44,14 @@ body {
   flex-direction: column;
 }
 
-.notebook{
+.info{
   display: flex;
 
-  width: 250rpx;
-  height: 10vh;
-  border: 1px solid #aaa;
+  width: 500rpx;
+  height: 8vh;
+  border: 1px solid #f4ed4f;
   border-radius: 20rpx;
-
-  justify-content: center;
-  align-items: center;
-}
-.shop{
-  display: flex;
-
-  width: 250rpx;
-  height: 10vh;
-  border: 1px solid #aaa;
-  border-radius: 20rpx;
-
-  justify-content: center;
-  align-items: center;
-}
-.document{
-  display: flex;
-
-  width: 250rpx;
-  height: 10vh;
-  border: 1px solid #aaa;
-  border-radius: 20rpx;
-
-  justify-content: center;
-  align-items: center;
-}
-.guide{
-  display: flex;
-
-  width: 250rpx;
-  height: 10vh;
-  border: 1px solid #aaa;
-  border-radius: 20rpx;
-
-  justify-content: center;
-  align-items: center;
-}
-.about{
-  display: flex;
-
-  width: 250rpx;
-  height: 10vh;
-  border: 1px solid #aaa;
-  border-radius: 20rpx;
+  font-size: 14px;
 
   justify-content: center;
   align-items: center;

@@ -9,17 +9,19 @@
 
   width: 550rpx;
   height: 24vh;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-top: 3vh;
+  margin-bottom: 0vh;
   margin-right: 100rpx;
   margin-left: 100rpx;
-  border: 1px solid black;
 }
 
 .rankInfo{
-  width: 540%;
+  width: 540rpx;
   height: 1em;
   margin-left: 10rpx;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid black;
+  font-size: 16px;
 }
 
 .choose{
@@ -32,4 +34,5 @@
   margin-right: 10rpx;
   margin-left: 10rpx;
   border: 1px solid black;
+  border-radius: 20rpx;
 }

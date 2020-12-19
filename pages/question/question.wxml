@@ -21,8 +21,8 @@
     <view class="keyboardButton" id="3">
       <image src="/static/keyboard/num3.png"></image>
     </view>
-    <view class="keyboardButton delete">
-      <image src="/static/keyboard/delete.png"></image>
+    <view class="keyboardButton" id="0">
+      <image src="/static/keyboard/num0.png"></image>
     </view>
     <view class="keyboardButton" id="4">
       <image src="/static/keyboard/num4.png"></image>
@@ -33,7 +33,9 @@
     <view class="keyboardButton" id="6">
       <image src="/static/keyboard/num6.png"></image>
     </view>
-    <view class="keyboardButton submit">O</view>
+    <view class="keyboardButton delete">
+      <image src="/static/keyboard/delete.png"></image>
+    </view>
     <view class="keyboardButton" id="7">
       <image src="/static/keyboard/num7.png"></image>
     </view>
@@ -43,8 +45,8 @@
     <view class="keyboardButton" id="9">
       <image src="/static/keyboard/num9.png"></image>
     </view>
-    <view class="keyboardButton" id="0">
-      <image src="/static/keyboard/num0.png"></image>
+    <view class="keyboardButton submit">
+      <image src="/static/keyboard/submit.png"></image>
     </view>
   </view>
 

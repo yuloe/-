@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+  <image src="/static/background1.png"></image>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -11,10 +12,10 @@
     </block>
   </view>
   <view class="meinfo">
-    <view class="notebook"><text>错题本</text></view>
-    <view class="shop"><text>商城</text></view>
-    <view class="document"><text>学习资料</text></view>
-    <view class="guide"><text>使用指南</text></view>
-    <view class="about"><text>关于我们</text></view>
+    <view class="info" id="notebook" style="background-color: #ff4500"><text>错题本</text></view>
+    <view class="info" id="shop" style="background-color: #ffa500"><text>商城</text></view>
+    <view class="info" id="doc" style="background-color: #7fff00"><text>学习资料</text></view>
+    <view class="info" id="guide" style="background-color: #00ffff"><text>使用指南</text></view>
+    <view class="info" id="about" style="background-color: #ee82ee"><text>关于我们</text></view>
   </view>
 </view>

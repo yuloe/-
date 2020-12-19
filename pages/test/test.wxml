@@ -1,5 +1,5 @@
 <view class="container">
-  <image src="/static/background3.png"></image>
+  <image src="/static/background1.png"></image>
   <view class="chooseRank">
     <view class="rank">选择年级</view>
     <!-- 下拉菜单 -->

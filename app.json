@@ -1,25 +1,28 @@
 {
   "pages": [
+    "pages/finish/finish",
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/question/question",
     "pages/me/me",
-    "pages/test/test",
     "pages/typeChoose/typeChoose",
-    "pages/question/question"
+    "pages/logs/logs",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#d9c3e9",
-    "navigationBarTitleText": "彩虹算术",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "彩虹🌈算术",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "每日练习",
         "iconPath": "static/index.png",
         "selectedIconPath": "static/index-selected.png"
-      }, {
+      },
+      {
         "pagePath": "pages/test/test",
         "text": "限时训练",
         "iconPath": "static/test.png",

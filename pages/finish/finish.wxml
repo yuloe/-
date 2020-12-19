@@ -1,0 +1,8 @@
+<!--pages/finish/finish.wxml-->
+<view class="container">
+  <image src="/static/background1.png"></image>
+  <view class="text"><text>恭喜你完成训练，获得1枚金币！</text></view>
+  <view class="grade">本次得分：{{grade}}</view>
+  <view class="wrong"><text>本次错题：</text></view>
+  <view class="confirm"><text>确定</text></view>
+</view>
