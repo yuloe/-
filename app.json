@@ -8,8 +8,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#d9c3e9",
+    "navigationBarTitleText": "彩虹算术",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

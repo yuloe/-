@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+  <image src="/static/background.png"></image>
   <view class="chooseinfo">
     <view class="rank"><text>选择：</text></view>
     <view class="type" bindtap="chooseType"><text>题型选择</text></view>
@@ -9,13 +10,6 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block> -->
   </view>
-
-  <!-- <view class="chooseType"  wx:if="{{typeChoose}}">
-    <view><text>{{que[rank * 3]}}</text></view>
-    <view><text>{{que[rank * 3 + 1]}}</text></view>
-    <view><text>{{que[rank * 3 + 2]}}</text></view>
-    <view class="confirm" bindtap="changeTypeShow">确认</view>
-  </view> -->
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
