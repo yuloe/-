@@ -1,4 +1,3 @@
-// get everyday question log
 const {
   GetWrongSet,
   SetWrongSet,
@@ -7,6 +6,7 @@ const {
   JudgeUserAnswer
 } = require("./answerhandler")
 
+// get everyday question log
 function GetEvedayLog() {
   try {
     let value = wx.getStorageSync('everydaylog')
@@ -41,7 +41,7 @@ function ChangeEverydayLog(needQuestions, needWrongAnswers, time) {
   var everydayLog = {
     needQuestions: needQuestions,
     needWrongAnswers: needWrongAnswers,
-    time: new Date().getDate()
+    time: time
   }
   SetEvedayLog(everydayLog)
 }
