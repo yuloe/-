@@ -49,18 +49,6 @@ function SetWrongSet(wrongSet) {
   })
 }
 
-// get a random wrong question
-function GetRandomWrongQuestion() {
-  var wrongSet = GetWrongSet()
-  return wrongSet[RandomNum(0, GetJSONLength(json))]
-}
-
-// get an ordered wrong question
-function GetOrderedWrongQuestion(order) {
-  var wrongSet = GetWrongSet()
-  return wrongSet[order]
-}
-
 // refresh the wrong question set
 function RefreshWrongSet() {
   var wrongSet = GetWrongSet
@@ -70,4 +58,11 @@ function RefreshWrongSet() {
     }
   }
   SetWrongSet(wrongSet)
+}
+
+module.exports = {
+  GetWrongSet:GetWrongSet,
+  SetWrongSet:SetWrongSet,
+  GetJSONLength:GetJSONLength,
+  RefreshWrongSet:RefreshWrongSet
 }

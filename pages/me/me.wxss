@@ -4,13 +4,98 @@ body {
 }
 
 .container {
-  position: relative;
-  width: 10%
+  display: flex;
 }
 
-.left{
-  position: absolute;
-  left: 10px;
-  width: 20px;
-  background-color: gray;
+.userinfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+
+  width: 700rpx;
+  height: 20vh;
+  padding: 25rpx;
+  border-bottom: 3px solid black;
+}
+
+.userinfo-avatar {
+  display: flex;
+
+  width: 150rpx;
+  height: 15vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.userinfo-nickname{
+  display: flex;
+
+  width: 150rpx;
+  height: 10vh;
+}
+
+.meinfo {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.notebook{
+  display: flex;
+
+  width: 250rpx;
+  height: 10vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+.shop{
+  display: flex;
+
+  width: 250rpx;
+  height: 10vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+.document{
+  display: flex;
+
+  width: 250rpx;
+  height: 10vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+.guide{
+  display: flex;
+
+  width: 250rpx;
+  height: 10vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+.about{
+  display: flex;
+
+  width: 250rpx;
+  height: 10vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
 }

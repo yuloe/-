@@ -1,3 +1,5 @@
+const {GetWrongSet,SetWrongSet,GetJSONLength,RefreshWrongSet} = require("./answerhandler.js")
+
 // get test log
 function GetTestLog() {
   wx.getStorage({
@@ -22,14 +24,14 @@ function SetTestLog(testLog) {
   })
 }
 
-// get json length
-function GetJSONLength(json) {
-  var jsonLength = 0
-  for (var i in json) {
-    jsonLength++
-  }
-  return jsonLength
-}
+// // get json length
+// function GetJSONLength(json) {
+//   var jsonLength = 0
+//   for (var i in json) {
+//     jsonLength++
+//   }
+//   return jsonLength
+// }
 
 // add test history
 function AddTestHistory(testHistory){

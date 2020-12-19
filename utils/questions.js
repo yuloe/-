@@ -1,3 +1,7 @@
+// import outsize functions
+const {GetWrongSet,SetWrongSet,GetJSONLength,RefreshWrongSet} = require("./answerhandler.js")
+const {GetEvedayLog,ChangeEverydayLog} = require("./everydayquetion.js")
+
 // generate a randomnum range from minNum to maxNum
 function RandomNum(minNum, maxNum) {
   switch (arguments.length) {
@@ -249,6 +253,51 @@ function GenerateQuestion(type) {
 // generate questions according to the mode
 function GenerateQuestionByMode(mode) {
   return (GenerateQuestion(mode[RandomNum(0, mode.length - 1)]))
+}
+
+// get a random wrong question
+function GetRandomWrongQuestion() {
+  var wrongSet = GetWrongSet()
+  var questionSequence = RandomNum(0, GetJSONLength(json))
+  wrongSet[questionSequence].reviewTimes += 1
+  var wrongQuestion = wrongSet[questionSequence]
+  RefreshWrongSet()
+  return wrongQuestion
+}
+
+// get an ordered wrong question
+function GetOrderedWrongQuestion(order) {
+  var wrongSet = GetWrongSet()
+  return wrongSet[order]
+}
+
+// Question function
+function GetQuestion(mode){
+  var everydayLog = {
+    needQuestions: 0,
+    needWrongAnswers: 0,
+    time: 0
+  }
+  everydayLog = GetEvedayLog()
+  switch(RandomNum(0,1)){
+    case 0:
+      if(everydayLog.needWrongAnswers > 0){
+        everydayLog.needWrongAnswers--
+        var wrongQuestion = GetRandomWrongQuestion()
+        ChangeEverydayLog(needQuestions, needWrongAnswers, new Date().getDate())
+        return wrongQuestion.question
+      }
+    case 1:
+      if(everydayLog.needQuestions > 0){
+        everydayLog.needQuestions--
+        ChangeEverydayLog(needQuestions, needWrongAnswers, new Date().getDate())
+        return GenerateQuestionByMode(mode)
+      }
+      console.log("Have finished all questions Today!\n")
+      break;
+    default:
+      break;
+  }
 }
 
 var test = true
