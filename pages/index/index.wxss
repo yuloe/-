@@ -21,7 +21,6 @@
 
   width: 250rpx;
   height: 10vh;
-  border: 1px solid #aaa;
   border-radius: 20rpx;
 
   justify-content: center;
@@ -35,42 +34,47 @@
   height: 10vh;
   border: 1px solid #aaa;
   border-radius: 20rpx;
+  background-color: #2ec2ba;
 
   justify-content: center;
   align-items: center;
 }
 
-.chooseType {
-  position: absolute;
-  top: 0;
-
-  width: 600rpx;
-  height: 50vh;
-  border: 1px solid black;
-  border-radius: 20rpx;
-
-  
-}
-
-.chooseType view{
+/* 今日计划部分 */
+.plan{
   display: flex;
+  position: relative;
+  flex-wrap: wrap;
 
-  width: 50%;
-  height: 10vh;
-  margin: 2vh auto 2vh auto;
-  border: 1px solid black;
-  border-radius: 15rpx;
+  width: 650rpx;
 
-  justify-content: center;
-  align-items: center;
+  border: 1px solid #FFFFFF;
+  border-radius: 25rpx;
 }
 
-.chooseType .confirm{
-  width: 30%;
-  height: 8vh;
-  margin: 2vh auto 2vh auto;
+.need2Do, .review{
+  width: 250rpx;
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+
+  text-align: center;
+}
+
+.startText{
+  width: 80px;
+  height: 30px;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid black;
-  border-radius: 15rpx;
+  border-radius: 10px;
+
+  text-align: center;
+}
+
+.todayPlan{
+  width: 100%;
+  text-align: center;
 }
 
 /* 不需要的东西 */

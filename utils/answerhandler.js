@@ -1,4 +1,5 @@
 // judge user answer
+
 function JudgeUserAnswer(question, userAnswer) {
   if (question.result == userAnswer) {
     return true

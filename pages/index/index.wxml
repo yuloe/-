@@ -1,16 +1,22 @@
 <!--index.wxml-->
 <view class="container">
-  <image src="/static/background.png"></image>
+  <image src="/static/background3.png"></image>
   <view class="chooseinfo">
-    <view class="rank"><text>选择：</text></view>
-    <view class="type" bindtap="chooseType"><text>题型选择</text></view>
+    <view class="rank" bindtap="showChooseType"><text>题型选择</text></view>
+    <view class="type" bindtap="chooseType"><text>{{}}</text></view>
     <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block> -->
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class="plan">
+    <image src="/static/planback.jpg" class="background-image"></image>
+    <view class="todayPlan">今日计划</view>
+    <view class="need2Do">需做</view>
+    <view class="review">复习</view>
+    <view class="startText">开始练习</view>
   </view>
+
 </view>

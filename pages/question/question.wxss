@@ -1,0 +1,89 @@
+/* pages/question/question.wxss */
+.container{
+  justify-content: space-around;
+
+  width: 750rpx;
+  height: 100vh;
+  padding-right: 25rpx;
+  padding-left: 25rpx;
+  background-color: #F4ED4F;
+}
+
+.timer{
+  width: 100%;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+
+  text-align: center;
+  font-size: 45rpx;
+}
+
+.progress{
+  width: 500rpx;
+  padding-left: 100rpx;
+  text-align: left;
+
+  font-size: 25rpx;
+}
+
+/* 算术题样式 */
+.question{
+  width: 600rpx;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border: 1px solid #f6d45b;
+  border-radius: 2vh;
+  background-color: #f6d45b;
+
+  text-align: center;
+  font-size: 40rpx;
+}
+
+/* 键盘输入样式 */
+.keyboard{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  width: 550rpx;
+  padding: 25rpx;
+  height: 40vh;
+  border: 1px solid #8AD0E3;
+  border-radius: 25rpx;
+  background-color: #8AD0E3;
+}
+
+.keyboardButton{
+  position: relative;
+  width: 118rpx;
+  height: 118rpx;
+  margin-right: 7.5rpx;
+  margin-left: 7.5rpx;
+
+  border: 1px solid;
+  border-radius: 50%;
+}
+.keyboard image{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: auto;
+}
+
+/* 退出按钮 */
+.quit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 300rpx;
+  height: 80rpx;
+  margin-bottom: 4vh;
+  border: 1px solid #da8255;
+  border-radius: 30rpx;
+  background-color: #d88a63;
+}

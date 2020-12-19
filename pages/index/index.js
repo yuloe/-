@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+const {formatTime} = require("../../utils/util")
 const app = getApp()
 
 Page({
@@ -31,8 +32,7 @@ Page({
     })
   },
   showChooseType: function () {
-    const chooseBar =  wx.createSelectorQuery().select(".chooseType")
-    chooseBar.style.top = 0
+    console.log(formatTime(new Date()))
   },
   bindViewTap: function () {
     wx.navigateTo({
