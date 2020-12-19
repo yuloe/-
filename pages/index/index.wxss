@@ -1,4 +1,79 @@
 /**index.wxss**/
+.container {
+  position: relative;
+}
+
+.chooseinfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+
+  width: 700rpx;
+  margin-right: 25rpx;
+  margin-left: 25rpx;
+  height: 20vh;
+  border-bottom: 1px solid black;
+}
+
+.rank {
+  display: flex;
+
+  width: 250rpx;
+  height: 10vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.type {
+  display: flex;
+
+  width: 250rpx;
+  height: 10vh;
+  border: 1px solid #aaa;
+  border-radius: 20rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.chooseType {
+  position: absolute;
+  top: 0;
+
+  width: 600rpx;
+  height: 50vh;
+  border: 1px solid black;
+  border-radius: 20rpx;
+
+  
+}
+
+.chooseType view{
+  display: flex;
+
+  width: 50%;
+  height: 10vh;
+  margin: 2vh auto 2vh auto;
+  border: 1px solid black;
+  border-radius: 15rpx;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.chooseType .confirm{
+  width: 30%;
+  height: 8vh;
+  margin: 2vh auto 2vh auto;
+  border: 1px solid black;
+  border-radius: 15rpx;
+}
+
+/* 不需要的东西 */
 .userinfo {
   display: flex;
   flex-direction: column;
