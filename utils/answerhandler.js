@@ -39,9 +39,9 @@ function GetWrongSet(){
 }
 
 // set wrong question set
-function SetWrongSet(json){
+function SetWrongSet(wrongSet){
   wx.setStorage({
-    data: json,
+    data: wrongSet,
     key: 'wrongset',
     fail(){
       console.log("Error: Can not set storage!\n")
@@ -51,12 +51,24 @@ function SetWrongSet(json){
 
 // get a random wrong question
 function GetRandomWrongQuestion(){
-  var json = GetWrongSet()
-  return json[RandomNum(0,GetJSONLength(json))]
+  var wrongSet = GetWrongSet()
+  return wrongSet[RandomNum(0,GetJSONLength(json))]
 }
 
 // get an ordered wrong question
 function GetOrderedWrongQuestion(order){
-  var json = GetWrongSet()
-  return json[order]
+  var wrongSet = GetWrongSet()
+  return wrongSet[order]
+}
+
+// refresh the wrong question set
+function RefreshWrongSet(){
+  var wrongSet = GetWrongSet
+  var deleteArray = []
+  for (var i in wrongSet){
+    if (i.reviewTimes == 3){
+      delete i
+    }
+  }
+  SetWrongSet(wrongSet)
 }
