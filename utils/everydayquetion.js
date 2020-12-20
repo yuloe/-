@@ -14,7 +14,7 @@ function GetEvedayLog() {
       return value
     } else {
       SetEvedayLog({
-        needQuestions: 50,
+        needQuestions: 5,
         needWrongAnswers: Math.min(10, GetJSONLength(GetWrongSet())),
         time: new Date().getDate()
       })
@@ -54,6 +54,7 @@ function RefreshEverydayLog() {
     time: 0
   }
   everydayLog = GetEvedayLog()
+  console.log(everydayLog)
   if (everydayLog.time != new Date().getDate()) {
     ChangeEverydayLog(50, 10, new Date().getDate())
   }

@@ -64,35 +64,43 @@ Page({
       return
     }
     let result = parseInt(this.data.result)
-    console.log(result)
     if (JudgeUserAnswer(this.data.question, result)) {
-      FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
+      appInstance.globalData.correctNum++
       wx.showToast({
         icon: 'none',
         title: '回答正确'
       })
+      FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
     } else {
       appInstance.globalData.wrongNum++
       wx.showToast({
         icon: 'none',
         title: '回答错误'
       })
+      FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
     }
-
-    if (appInstance.globalData.exeMode === 0) {
-      let practicequestion = GetQuestion(appInstance.globalData.typeMode)
-      console.log(practicequestion)
-      this.setData({
-        question: practicequestion.question,
-        questiontype: practicequestion.type,
-        finished: this.data.finished + 1,
-        result: '?'
-      })
+    let finished = this.data.questionNum - this.data.finished
+    if (finished != 0) {
+      if (appInstance.globalData.exeMode === 0) {
+        let practicequestion = GetQuestion(appInstance.globalData.typeMode)
+        console.log(practicequestion)
+        this.setData({
+          question: practicequestion.question,
+          questiontype: practicequestion.type,
+          finished: this.data.finished + 1,
+          result: '?'
+        })
+      } else {
+        this.setData({
+          question: GenerateQuestion(appInstance.globalData.typeModeForTest),
+          finished: this.data.finished + 1,
+          result: '?'
+        })
+      }
     } else {
+      /* 完成测试，做完所有题目,显示对话框 */
       this.setData({
-        question: GenerateQuestion(appInstance.globalData.typeModeForTest),
-        finished: this.data.finished + 1,
-        result: '?'
+        isAccomplishTest: true
       })
     }
   },
@@ -101,23 +109,7 @@ Page({
       isAccomplishTest: true
     })
   },
-  /* 完成测试，做完所有题目,显示对话框 */
-  accomplishTest: function (that) {
-    let finished = that.data.questionNum - that.data.finished
-    if (finished === 0) {
-      that.setData({
-        isAccomplishTest: true
-      })
-      console.log(this.data.isAccomplishTest)
-      return
-    }
-    this.setData({
-      timer1: setTimeout(function () {
-        console.log("exe ing")
-        that.accomplishTest(that)
-      }, 500)
-    })
-  },
+
   /* 前往结果页面 */
   tapDialogButton: function () {
     console.log("leave que Page")
@@ -161,7 +153,7 @@ Page({
         question: practicequestion.question,
         questiontype: practicequestion.type,
         questionNum: GetEvedayLog().needQuestions + GetEvedayLog().needWrongAnswers,
-        finished: 0,
+        finished: 1,
         result: '?',
         second: '--'
       })
@@ -169,13 +161,12 @@ Page({
       this.setData({
         question: GenerateQuestion(appInstance.globalData.typeModeForTest),
         questionNum: 50,
-        finished: 0,
+        finished: 1,
         result: '?',
         second: 500
       })
     }
 
-    this.accomplishTest(this)
     if (appInstance.globalData.exeMode === 1) {
       this.countdown(this)
     }

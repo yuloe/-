@@ -295,9 +295,11 @@ function GetQuestion(mode) {
       if (everydayLog.needWrongAnswers > 0) {
         var wrongQuestion = GetRandomWrongQuestion()
         return {
-          question: wrongQuestion.question,
+          question: JSON.parse(wrongQuestion).question,
           type: type
         }
+      }else{
+        type = 1
       }
       case 1:
         if (everydayLog.needQuestions > 0) {

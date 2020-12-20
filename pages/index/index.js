@@ -45,6 +45,7 @@ Page({
         need2DoNum:25,
         reviewNum:Math.min(5, GetJSONLength(GetWrongSet()))
       })
+      console.log(GetJSONLength(GetWrongSet()))
     }else{
       if (this.data.type[0] !== 0) {
         app.globalData.exeMode = 0

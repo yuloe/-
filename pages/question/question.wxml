@@ -3,7 +3,7 @@
   <view class="timer">倒计时 {{second}} 秒</view>
   <view class="progress">
     <text>做题进度 {{finished}}/{{questionNum}}</text>
-    <progress percent="{{finished/questionNum*100}}" show-info="true" font-size="12px" border-radius="3px"
+    <progress percent="{{finished/questionNum*100}}" font-size="12px" border-radius="3px"
       activeColor="black"></progress></view>
   <view class="question">
     <text>{{question.expression}}</text>
