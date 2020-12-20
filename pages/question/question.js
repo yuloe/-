@@ -132,7 +132,7 @@ Page({
     if(appInstance.globalData.exeMode === 0){
       this.setData({
         question: GetQuestion(appInstance.globalData.typeMode),
-        questionNum: GetEvedayLog().needQuestions + GetEvedayLog().needWrongAnswers,
+        questionNum: GetEvedayLog().needQuestions + GetEvedayLog().needWrongAnswers + 1,
         finished: 0,
         result: '?',
         second: '--'
@@ -148,7 +148,7 @@ Page({
     }
 
     this.accomplishTest(this)
-    if(this.globalData.exeMode === 1){
+    if(appInstance.globalData.exeMode === 1){
       this.countdown(this)
     }
   },

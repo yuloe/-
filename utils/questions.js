@@ -283,8 +283,7 @@ function GetOrderedWrongQuestion(order) {
 
 // Question function
 function GetQuestion(mode) {
-  everydayLog = GetEvedayLog()
-  console.log(everydayLog)
+  let everydayLog = GetEvedayLog()
   switch (RandomNum(0, 1)) {
     case 0:
       if (everydayLog.needWrongAnswers > 0) {
