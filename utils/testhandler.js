@@ -12,7 +12,7 @@ function GetTestLog() {
     let value = wx.getStorageSync('testlog')
     if(value) return value
     else{
-      SetTestLog([])
+      SetTestLog("[]")
       return GetTestLog()
     }
   } catch (error) {
@@ -32,16 +32,35 @@ function SetTestLog(testLog) {
 }
 
 // add test history
-function AddTestHistory(testHistory) {
+function AddTestHistory(testScore) {
+  let time = new Date()
+  var testHistory = {
+    testTime: String(time.getFullYear()) + '/' + String(time.getMonth()) + '/' + String(time.getDate()),
+    testScore: testScore
+  }
   var testLog = GetTestLog()
-  testLog.push(JSON.stringify(testHistory))
+  testLog.push(testHistory)
   console.log(testLog)
-  if (GetJSONLength(testLog) > 3) {
+  if (testLog.length > 3) {
     testLog.splice(0, 1)
   }
   SetTestLog(testLog)
 }
 
+// get the highest test score
+function GetHighScore(){
+  let testHistory = GetTestLog()
+  let highScore = 0
+  for(let i = 0; i < GetJSONLength(testHistory); i++){
+    if(testHistory[i].testScore > highScore){
+      highScore = testHistory[i].testScore
+    }
+  }
+  return highScore
+}
+
 module.exports = {
-  AddTestHistory: AddTestHistory
+  GetTestLog:GetTestLog,
+  AddTestHistory: AddTestHistory,
+  GetHighScore: GetHighScore
 }

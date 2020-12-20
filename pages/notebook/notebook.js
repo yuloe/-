@@ -40,54 +40,21 @@ Page({
    */
   onShow: function () {
     let wrongSet = GetWrongSet()
-    let wrongNum = GetJSONLength(wrongSet)
+    let wrongNum = wrongSet.length
+    console.log(wrongSet)
+    console.log(wrongSet.length)
     let tempArr = this.data.wrongSet
     for (let i = 0; i < wrongNum; i++) {
       tempArr.push({
-        question: JSON.parse(GetOrderedWrongQuestion(i)).question.expression,
-        result: JSON.parse(GetOrderedWrongQuestion(i)).userAnswer,
-        correctResult: JSON.parse(GetOrderedWrongQuestion(i)).question.result,
-        reviewTimes: JSON.parse(GetOrderedWrongQuestion(i)).reviewTimes
+        question: GetOrderedWrongQuestion(i).question.expression,
+        result: GetOrderedWrongQuestion(i).userAnswer,
+        correctResult: GetOrderedWrongQuestion(i).question.result,
+        reviewTimes: GetOrderedWrongQuestion(i).reviewTimes
       })
     }
     this.setData({
       wrongSet: tempArr
     })
     console.log(this.data.wrongSet)
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

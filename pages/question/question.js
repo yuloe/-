@@ -4,6 +4,9 @@ const {
 const {
   GetEvedayLog
 } = require("../../utils/everydayquetion")
+const {GetTestLog,
+  AddTestHistory,
+  GetHighScore} = require("../../utils/testhandler")
 // pages/question/question.js
 const {
   GetQuestion,
@@ -92,7 +95,7 @@ Page({
         })
       } else {
         this.setData({
-          question: GenerateQuestion(appInstance.globalData.typeModeForTest),
+          question: GenerateQuestionByMode(appInstance.globalData.typeModeForTest),
           finished: this.data.finished + 1,
           result: '?'
         })
@@ -102,12 +105,18 @@ Page({
       this.setData({
         isAccomplishTest: true
       })
+      if(appInstance.globalData.exeMode === 1){
+        AddTestHistory(appInstance.globalData.correctNum*2)
+      }
     }
   },
   quitTest: function () {
     this.setData({
       isAccomplishTest: true
     })
+    if(appInstance.globalData.exeMode === 1){
+      AddTestHistory(appInstance.globalData.correctNum*2)
+    }
   },
 
   /* 前往结果页面 */
@@ -131,6 +140,9 @@ Page({
       that.setData({
         isTimeOver: true
       })
+      if(appInstance.globalData.exeMode === 1){
+        AddTestHistory(appInstance.globalData.correctNum*2)
+      }
       return
     }
     this.setData({
@@ -159,7 +171,7 @@ Page({
       })
     } else {
       this.setData({
-        question: GenerateQuestion(appInstance.globalData.typeModeForTest),
+        question: GenerateQuestionByMode(appInstance.globalData.typeModeForTest),
         questionNum: 50,
         finished: 1,
         result: '?',

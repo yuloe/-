@@ -40,9 +40,9 @@ Page({
     console.log(wrongNum)
     for (let i = 0; i < app.globalData.wrongNum; i++) {
       tempArr.push({
-        question: JSON.parse(GetOrderedWrongQuestion(wrongNum - i - 1)).question.expression,
-        result: JSON.parse(GetOrderedWrongQuestion(wrongNum - i - 1)).userAnswer,
-        correctResult: JSON.parse(GetOrderedWrongQuestion(wrongNum - i - 1)).question.result
+        question: GetOrderedWrongQuestion(wrongNum - i - 1).question.expression,
+        result: GetOrderedWrongQuestion(wrongNum - i - 1).userAnswer,
+        correctResult: GetOrderedWrongQuestion(wrongNum - i - 1).question.result
       })
     }
     this.setData({

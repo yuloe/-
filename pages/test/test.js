@@ -1,42 +1,72 @@
+const {
+  GetTestLog,
+  AddTestHistory,
+  GetHighScore
+} = require("../../utils/testhandler")
 const appInstance = getApp()
 
-Page({ 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    historyScore: 98,
+    historyScore: 0,
     currentRank: 0,
-    testHistory: [{
-      time: "2020/12/20",
-      score: "96"
-    },{
-      time: "2020/12/19",
-      score: "96"
-    },{
-      time: "2020/12/18",
-      score: "98"
-    }]
+    testHistory: [],
+    type: [1, 2, 3]
   },
 
-  chooseRank: function(options){
+  chooseRank: function (options) {
+    let currentRank = parseInt(options.currentTarget.id)
+    switch (currentRank) {
+      case 1:
+        appInstance.globalData.typeModeForTest = [1, 2, 3]
+        break;
+      case 2:
+        appInstance.globalData.typeModeForTest = [4, 5, 6]
+        break;
+      case 3:
+        appInstance.globalData.typeModeForTest = [7, 8, 9]
+        break;
+      default:
+        break;
+    }
     this.setData({
-      chooseRank: parseInt(options.currentTarget.id)
+      currentRank: currentRank,
+      type: appInstance.globalData.typeModeForTest
     })
-    console.log(parseInt(options.currentTarget.dataset.id))
+    console.log(parseInt(options.currentTarget.id))
   },
-
+  startTest: function () {
+      if (this.data.type[0] !== 0) {
+        appInstance.globalData.exeMode = 1
+        wx.redirectTo({
+          url: '/pages/question/question',
+        })
+      } else {
+        wx.showToast({
+          icon: 'none',
+          title: '请选择年级',
+          duration: 2000
+        })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      testHistory: GetTestLog(),
+      historyScore: GetHighScore(),
+      type: appInstance.globalData.typeModeForTest
+    })
+    console.log(this.data.testHistory)
   }
 })

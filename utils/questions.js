@@ -273,7 +273,7 @@ function GetRandomWrongQuestion() {
   var questionSequence = RandomNum(0, GetJSONLength(wrongSet) - 1)
   console.log(wrongSet)
   console.log(questionSequence)
-  JSON.parse(wrongSet[questionSequence]).reviewTimes += 1
+  wrongSet[questionSequence].reviewTimes += 1
   var wrongQuestion = wrongSet[questionSequence]
   SetWrongSet(wrongSet)
   RefreshWrongSet()
@@ -295,7 +295,7 @@ function GetQuestion(mode) {
       if (everydayLog.needWrongAnswers > 0) {
         var wrongQuestion = GetRandomWrongQuestion()
         return {
-          question: JSON.parse(wrongQuestion).question,
+          question: wrongQuestion.question,
           type: type
         }
       }else{
