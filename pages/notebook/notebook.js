@@ -46,7 +46,8 @@ Page({
       tempArr.push({
         question: JSON.parse(GetOrderedWrongQuestion(i)).question.expression,
         result: JSON.parse(GetOrderedWrongQuestion(i)).userAnswer,
-        correctResult: JSON.parse(GetOrderedWrongQuestion(i)).question.result
+        correctResult: JSON.parse(GetOrderedWrongQuestion(i)).question.result,
+        reviewTimes: JSON.parse(GetOrderedWrongQuestion(i)).reviewTimes
       })
     }
     this.setData({
