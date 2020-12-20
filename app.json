@@ -6,6 +6,7 @@
     "pages/about/about",
     "pages/result/result",
     "pages/question/question",
+    "pages/test/test",
     "pages/finish/finish",
     "pages/logs/logs",
     "pages/me/me",
