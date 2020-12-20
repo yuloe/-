@@ -270,7 +270,9 @@ function GenerateQuestionByMode(mode) {
 // get a random wrong question
 function GetRandomWrongQuestion() {
   var wrongSet = GetWrongSet()
-  var questionSequence = RandomNum(0, GetJSONLength(wrongSet))
+  var questionSequence = RandomNum(0, GetJSONLength(wrongSet) - 1)
+  console.log(wrongSet)
+  console.log(questionSequence)
   JSON.parse(wrongSet[questionSequence]).reviewTimes += 1
   var wrongQuestion = wrongSet[questionSequence]
   SetWrongSet(wrongSet)
@@ -287,9 +289,11 @@ function GetOrderedWrongQuestion(order) {
 // Question function
 function GetQuestion(mode) {
   let everydayLog = GetEvedayLog()
-  switch (type = RandomNum(0, 1)) {
+  var type = RandomNum(0,1)
+  switch (type) {
     case 0:
       if (everydayLog.needWrongAnswers > 0) {
+        var wrongQuestion = GetRandomWrongQuestion()
         return {
           question: wrongQuestion.question,
           type: type

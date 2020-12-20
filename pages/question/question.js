@@ -1,13 +1,15 @@
 const {
   JudgeUserAnswer
 } = require("../../utils/answerhandler")
-const { GetEvedayLog } = require("../../utils/everydayquetion")
+const {
+  GetEvedayLog
+} = require("../../utils/everydayquetion")
 // pages/question/question.js
 const {
   GetQuestion,
   GetOrderedWrongQuestion,
   GenerateQuestionByMode,
-  FinishQuestion
+  FinshQuestion
 } = require("../../utils/questions")
 
 const appInstance = getApp()
@@ -62,8 +64,9 @@ Page({
       return
     }
     let result = parseInt(this.data.result)
+    console.log(result)
     if (JudgeUserAnswer(this.data.question, result)) {
-      FinishQuestion(this.data.questiontype, appInstance.globalData.exeMode)
+      FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
       wx.showToast({
         icon: 'none',
         title: '回答正确'
@@ -76,15 +79,16 @@ Page({
       })
     }
 
-    if(appInstance.globalData.exeMode === 0){
+    if (appInstance.globalData.exeMode === 0) {
       let practicequestion = GetQuestion(appInstance.globalData.typeMode)
+      console.log(practicequestion)
       this.setData({
         question: practicequestion.question,
         questiontype: practicequestion.type,
         finished: this.data.finished + 1,
         result: '?'
       })
-    }else{
+    } else {
       this.setData({
         question: GenerateQuestion(appInstance.globalData.typeModeForTest),
         finished: this.data.finished + 1,
@@ -108,7 +112,7 @@ Page({
       return
     }
     this.setData({
-      timer1: setTimeout(function(){
+      timer1: setTimeout(function () {
         console.log("exe ing")
         that.accomplishTest(that)
       }, 500)
@@ -117,10 +121,10 @@ Page({
   /* 前往结果页面 */
   tapDialogButton: function () {
     console.log("leave que Page")
-    if(this.data.timer1 !== NaN){
+    if (this.data.timer1 !== NaN) {
       clearTimeout(this.data.timer1)
     }
-    if(this.data.timer2 !== NaN){
+    if (this.data.timer2 !== NaN) {
       clearTimeout(this.data.timer2)
     }
     wx.navigateTo({
@@ -151,17 +155,17 @@ Page({
   onLoad: function (options) {
     appInstance.globalData.wrongNum = 0
     appInstance.globalData.correctNum = 0
-    if(appInstance.globalData.exeMode === 0){
+    if (appInstance.globalData.exeMode === 0) {
       let practicequestion = GetQuestion(appInstance.globalData.typeMode)
       this.setData({
         question: practicequestion.question,
         questiontype: practicequestion.type,
-        questionNum: GetEvedayLog().needQuestions + GetEvedayLog().needWrongAnswers + 1,
+        questionNum: GetEvedayLog().needQuestions + GetEvedayLog().needWrongAnswers,
         finished: 0,
         result: '?',
         second: '--'
       })
-    }else{
+    } else {
       this.setData({
         question: GenerateQuestion(appInstance.globalData.typeModeForTest),
         questionNum: 50,
@@ -172,7 +176,7 @@ Page({
     }
 
     this.accomplishTest(this)
-    if(appInstance.globalData.exeMode === 1){
+    if (appInstance.globalData.exeMode === 1) {
       this.countdown(this)
     }
   },
