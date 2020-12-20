@@ -48,7 +48,7 @@ Page({
     }else{
       if (this.data.type[0] !== 0) {
         app.globalData.exeMode = 0
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/question/question',
         })
       } else {
