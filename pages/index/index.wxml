@@ -12,7 +12,7 @@
     <view class="review">复习</view>
     <view class="need2DoNum">{{need2DoNum}}</view>
     <view class="reviewNum">{{reviewNum}}</view>
-    <view class="startTest" bindtap="startTest">开始练习</view>
+    <view class="startTest" bindtap="startTest">{{need2DoNum === 0 ? '再来一组': '开始练习'}}</view>
   </view>
 
 </view>

@@ -22,6 +22,10 @@
   font-size: 14px;
 }
 
+.active{
+  background-color: thistle;
+}
+
 .startTest {
   display: flex;
 

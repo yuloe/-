@@ -4,6 +4,7 @@
 
   width: 750rpx;
   height: 100vh;
+  padding-top: 5vh;
   padding-right: 25rpx;
   padding-left: 25rpx;
   background-color: #F4ED4F;

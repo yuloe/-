@@ -1,3 +1,16 @@
+const {
+  GetQuestion,
+  GetOrderedWrongQuestion,
+  GenerateQuestionByMode
+} = require("../../utils/questions")
+const {
+  GetWrongSet,
+  SetWrongSet,
+  GetJSONLength,
+  RefreshWrongSet,
+  JudgeUserAnswer
+} = require("../../utils/answerhandler.js")
+const app = getApp()
 // pages/result/result.js
 Page({
 
@@ -5,41 +18,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    wrongSet: [{
-      question: '3*1',
-      result: '5',
-      correctResult: '3'
-    },{
-      question: '3*1',
-      result: '5',
-      correctResult: '3'
-    },{
-      question: '3*1',
-      result: '5',
-      correctResult: '3'
-    }],
-    correctNum: 10
+    wrongSet: [],
+    correctNum: app.globalData.correctNum
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  returnIndex: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let tempArr = this.data.wrongSet
+    this.setData({
+      correctNum: app.globalData.correctNum
+    })
+    console.log(app.globalData.correctNum)
+    let wrongNum = GetJSONLength(GetWrongSet())
+    console.log(wrongNum)
+    for (let i = 0; i < app.globalData.wrongNum; i++) {
+      tempArr.push({
+        question: JSON.parse(GetOrderedWrongQuestion(wrongNum - i - 1)).question.expression,
+        result: JSON.parse(GetOrderedWrongQuestion(wrongNum - i - 1)).userAnswer,
+        correctResult: JSON.parse(GetOrderedWrongQuestion(wrongNum - i - 1)).question.result
+      })
+    }
+    this.setData({
+      wrongSet: tempArr
+    })
+    console.log(this.data.wrongSet)
   },
 
   /**

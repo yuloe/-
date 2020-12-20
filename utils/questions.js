@@ -271,7 +271,7 @@ function GenerateQuestionByMode(mode) {
 function GetRandomWrongQuestion() {
   var wrongSet = GetWrongSet()
   var questionSequence = RandomNum(0, GetJSONLength(wrongSet))
-  wrongSet[questionSequence].reviewTimes += 1
+  JSON.parse(wrongSet[questionSequence]).reviewTimes += 1
   var wrongQuestion = wrongSet[questionSequence]
   SetWrongSet(wrongSet)
   RefreshWrongSet()

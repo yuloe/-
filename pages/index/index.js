@@ -5,6 +5,13 @@ const {
   ChangeEverydayLog,
   RefreshEverydayLog
 } = require("../../utils/everydayquetion.js")
+const {
+  GetWrongSet,
+  SetWrongSet,
+  GetJSONLength,
+  RefreshWrongSet,
+  JudgeUserAnswer
+} = require("../../utils/answerhandler.js")
 const app = getApp()
 
 Page({
@@ -31,18 +38,26 @@ Page({
       url: '../logs/logs'
     })
   },
-  startTest: function(){
-    if(this.data.type[0] !== 0){
-      app.globalData.exeMode = 0
-      wx.navigateTo({
-        url: '/pages/question/question',
+  startTest: function () {
+    if (GetEvedayLog().needQuestions === 0 && GetEvedayLog().needWrongAnswers === 0) {
+      ChangeEverydayLog(25, Math.min(5, GetJSONLength(GetWrongSet())), new Date().getDate())
+      this.setData({
+        need2DoNum:25,
+        reviewNum:Math.min(5, GetJSONLength(GetWrongSet()))
       })
     }else{
-      wx.showToast({
-        icon: 'none',
-        title: '请选择题型',
-        duration: 2000
-      })
+      if (this.data.type[0] !== 0) {
+        app.globalData.exeMode = 0
+        wx.redirectTo({
+          url: '/pages/question/question',
+        })
+      } else {
+        wx.showToast({
+          icon: 'none',
+          title: '请选择题型',
+          duration: 2000
+        })
+      }
     }
   },
 

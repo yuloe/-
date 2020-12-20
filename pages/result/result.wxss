@@ -4,6 +4,7 @@
   width: 750rpx;
   height: 100vh;
   padding: 25rpx;
+  padding-top: 5vh;
 }
 
 .textArea{

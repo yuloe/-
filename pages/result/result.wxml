@@ -12,5 +12,5 @@
       <view class="block2"><text>正确答案是:{{item.correctResult}}  你的答案:{{item.result}}</text></view>
     </view>
   </scroll-view>
-  <view class="return"><view><text>返回首页</text></view></view>
+  <view class="return" bindtap="returnIndex"><view><text>返回首页</text></view></view>
 </view>

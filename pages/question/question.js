@@ -150,6 +150,7 @@ Page({
   /*生命周期函数--监听页面加载*/
   onLoad: function (options) {
     appInstance.globalData.wrongNum = 0
+    appInstance.globalData.correctNum = 0
     if(appInstance.globalData.exeMode === 0){
       let practicequestion = GetQuestion(appInstance.globalData.typeMode)
       this.setData({
