@@ -273,6 +273,9 @@ function GetRandomWrongQuestion() {
   var questionSequence = RandomNum(0, GetJSONLength(wrongSet) - 1)
   console.log(wrongSet)
   console.log(questionSequence)
+  while (wrongSet[questionSequence].reviewTimes >= 3) {
+    questionSequence = RandomNum(0, GetJSONLength(wrongSet) - 1)
+  }
   wrongSet[questionSequence].reviewTimes += 1
   var wrongQuestion = wrongSet[questionSequence]
   SetWrongSet(wrongSet)
@@ -289,7 +292,7 @@ function GetOrderedWrongQuestion(order) {
 // Question function
 function GetQuestion(mode) {
   let everydayLog = GetEvedayLog()
-  var type = RandomNum(0,1)
+  var type = RandomNum(0, 1)
   switch (type) {
     case 0:
       if (everydayLog.needWrongAnswers > 0) {
@@ -298,7 +301,7 @@ function GetQuestion(mode) {
           question: wrongQuestion.question,
           type: type
         }
-      }else{
+      } else {
         type = 1
       }
       case 1:

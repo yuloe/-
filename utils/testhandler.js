@@ -12,7 +12,7 @@ function GetTestLog() {
     let value = wx.getStorageSync('testlog')
     if(value) return value
     else{
-      SetTestLog("[]")
+      SetTestLog([])
       return GetTestLog()
     }
   } catch (error) {
