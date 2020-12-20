@@ -50,7 +50,7 @@
   width: 650rpx;
   margin-top: 5vh;
 
-  border: 1px solid #FFFFFF;
+  border: 3px solid #f5c64f;
   border-radius: 25rpx;
 }
 
