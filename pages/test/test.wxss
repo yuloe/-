@@ -23,7 +23,7 @@
 }
 
 .active{
-  background-color: thistle;
+  color: #d88a63;
 }
 
 .startTest {

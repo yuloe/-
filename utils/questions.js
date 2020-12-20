@@ -88,7 +88,7 @@ function GenerateMixComputing() {
     }
     return {
       question_type: 6,
-      expression: String(num1) + OptToString(operator1) + String(num2) + OptToString(operator2) + String(num3) + "=",
+      expression: String(num1) + OptToString(operator1) + String(num2) + OptToString(operator2) + String(num3),
       result: CalResult(num1, operator1, CalResult(num2, operator2, num3))
     }
   } else {

@@ -21,22 +21,34 @@ Page({
 
   chooseRank: function(options){
     this.setData({
-      chooseRank: parseInt(options.currentTarget.id)
+      currentRank: parseInt(options.currentTarget.id)
     })
-    console.log(parseInt(options.currentTarget.dataset.id))
+    console.log(parseInt(options.currentTarget.id))
+    console.log(this.data.currentRank)
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
+  startTest: function(){
+    if(this.data.currentRank === 1){
+      appInstance.globalData.typeModeForTest = [1,2,3]
+    }else if(this.data.currentRank === 2){
+      appInstance.globalData.typeModeForTest = [4,5,6]
+    }else if(this.data.currentRank === 3){
+      appInstance.globalData.typeModeForTest = [7,8,9]
+    }else{
+      wx.showToast({
+        title: '请选择年级',
+        icon: 'none'
+      })
+      return 
+    }
+    exeMode = 1
+    wx.redirectTo({
+      url: '../question/question',
+    })
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
   }
 })
