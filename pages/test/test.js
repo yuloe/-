@@ -4,17 +4,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    historyScore: 100,
+    historyScore: 98,
     rankChoose: 0,
     testHistory: [{
-      time: "2020/12/18",
+      time: "2020/12/20",
       score: "96"
     },{
       time: "2020/12/19",
       score: "96"
     },{
-      time: "2020/12/20",
-      score: "97"
+      time: "2020/12/18",
+      score: "98"
     }]
   },
 
