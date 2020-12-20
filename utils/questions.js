@@ -153,11 +153,11 @@ function OptToString(opt) {
 function GenerateQuestion(type) {
   switch (type) {
     case 1: // Add and subtract within 10
-      var num1 = RandomNum(0, 10)
+      var num1 = RandomNum(0, 9)
       var operator = RandomNum(0, 1)
       switch (operator) {
         case 0:
-          var num2 = RandomNum(0, 10 - num1)
+          var num2 = RandomNum(0, 9 - num1)
           break
         case 1:
           var num2 = RandomNum(0, num1)
@@ -167,11 +167,11 @@ function GenerateQuestion(type) {
       }
       break
     case 2: // Add and subtract within 20
-      var num1 = RandomNum(10, 20)
+      var num1 = RandomNum(10, 19)
       var operator = RandomNum(0, 1)
       switch (operator) {
         case 0:
-          var num2 = RandomNum(0, 20 - num1)
+          var num2 = RandomNum(0, 19 - num1)
           break
         case 1:
           var num2 = RandomNum(0, num1)
@@ -181,11 +181,11 @@ function GenerateQuestion(type) {
       }
       break
     case 3: // Add and subtract within 100
-      var num1 = RandomNum(20, 100)
+      var num1 = RandomNum(20, 99)
       var operator = RandomNum(0, 1)
       switch (operator) {
         case 0:
-          var num2 = RandomNum(0, 100 - num1)
+          var num2 = RandomNum(0, 99 - num1)
           break
         case 1:
           var num2 = RandomNum(0, num1)
@@ -212,14 +212,15 @@ function GenerateQuestion(type) {
       }
       return question
     case 7: // Add and subtract within 10000
-      var num1 = RandomNum(1, 100)
+      var num1 = RandomNum(1, 99)
       var operator = RandomNum(0, 1)
       switch (operator) {
         case 0:
-          var num2 = RandomNum(1, 100 - num1) * (10 ** RandomNum(0, 2))
+          var num2 = RandomNum(1, 99 - num1) * (10 ** RandomNum(0, 2))
           num1 = num1 * (10 ** RandomNum(0, 2))
           break
         case 1:
+          num1 = num1 * (10 ** RandomNum(0, 2))
           var num2 = RandomNum(0, num1)
           break
         default:
@@ -227,7 +228,7 @@ function GenerateQuestion(type) {
       }
       break
     case 8: // Multiple digits by one digit
-      var num1 = RandomNum(0, 200)
+      var num1 = RandomNum(0, 199)
       var num2 = RandomNum(0, 9)
       operator = 2
       break
@@ -248,7 +249,7 @@ function GenerateQuestion(type) {
       }
       break
     default:
-      window.alert("Error: Expression generate error!\n")
+      console.log("Error: Expression generate error!\n")
       return
   }
   // generate one operator question according to the data before
@@ -271,6 +272,7 @@ function GetRandomWrongQuestion() {
   var questionSequence = RandomNum(0, GetJSONLength(wrongSet))
   wrongSet[questionSequence].reviewTimes += 1
   var wrongQuestion = wrongSet[questionSequence]
+  SetWrongSet(wrongSet)
   RefreshWrongSet()
   return wrongQuestion
 }
@@ -292,16 +294,16 @@ function GetQuestion(mode) {
         ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
         return wrongQuestion.question
       }
-      case 1:
-        if (everydayLog.needQuestions > 0) {
-          everydayLog.needQuestions--
-          ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
-          return GenerateQuestionByMode(mode)
-        }
-        console.log("Have finished all questions Today!\n")
-        break;
-      default:
-        break;
+    case 1:
+      if (everydayLog.needQuestions > 0) {
+        everydayLog.needQuestions--
+        ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
+        return GenerateQuestionByMode(mode)
+      }
+      console.log("Have finished all questions Today!\n")
+      break;
+    default:
+      break;
   }
 }
 

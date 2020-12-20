@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/result/result",
+    "pages/notebook/notebook",
     "pages/question/question",
     "pages/finish/finish",
     "pages/logs/logs",

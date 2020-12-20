@@ -8,9 +8,10 @@ function JudgeUserAnswer(question, userAnswer) {
       userAnswer: userAnswer,
       reviewTimes: 0
     }
-    var json = GetWrongSet()
-    json.push(JSON.stringify(wrongQuestion))
-    SetWrongSet(json)
+    var wrongSet = GetWrongSet()
+    wrongSet.push(JSON.stringify(wrongQuestion))
+    console.log(wrongSet)
+    SetWrongSet(wrongSet)
     return false
   }
 }
@@ -51,7 +52,7 @@ function SetWrongSet(wrongSet) {
 
 // refresh the wrong question set
 function RefreshWrongSet() {
-  var wrongSet = GetWrongSet
+  var wrongSet = GetWrongSet()
   for (var i = GetJSONLength(wrongSet) - 1; i >= 0; i--) {
     if (wrongSet[i].reviewTimes == 3) {
       wrongSet.splice(i, 1)

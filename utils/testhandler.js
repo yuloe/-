@@ -31,19 +31,11 @@ function SetTestLog(testLog) {
   }
 }
 
-// // get json length
-// function GetJSONLength(json) {
-//   var jsonLength = 0
-//   for (var i in json) {
-//     jsonLength++
-//   }
-//   return jsonLength
-// }
-
 // add test history
 function AddTestHistory(testHistory) {
   var testLog = GetTestLog()
   testLog.push(JSON.stringify(testHistory))
+  console.log(testLog)
   if (GetJSONLength(testLog) > 3) {
     testLog.splice(0, 1)
   }
