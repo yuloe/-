@@ -38,6 +38,7 @@ App({
     typeMode: [0],
     typeModeForTest: [],
     exeMode: -1,
-    wrongNum: 0
+    wrongNum: 0,
+    correctNum: 0
   }
 })

@@ -61,6 +61,7 @@ Page({
     }
     let result = parseInt(this.data.result)
     if (JudgeUserAnswer(this.data.question, result)) {
+      appInstance.globalData.correctNum++
       wx.showToast({
         icon: 'none',
         title: '回答正确'
@@ -145,6 +146,7 @@ Page({
   /*生命周期函数--监听页面加载*/
   onLoad: function (options) {
     appInstance.globalData.wrongNum = 0
+    appInstance.globalData.correctNum = 0
     if(appInstance.globalData.exeMode === 0){
       this.setData({
         question: GetQuestion(appInstance.globalData.typeMode),
