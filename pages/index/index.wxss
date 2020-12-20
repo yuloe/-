@@ -13,7 +13,7 @@
   margin-right: 25rpx;
   margin-left: 25rpx;
   height: 20vh;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid #f5b619;
 }
 
 .rank {
@@ -33,10 +33,11 @@
 
   width: 250rpx;
   height: 10vh;
-  border: 1px solid #d88a63;
+  border: 1px solid #00b2ee;
   border-radius: 20rpx;
-  background-color: #f5b619;
+  background-color: #87ceff;
 
+  font-size: 13px;
   justify-content: center;
   align-items: center;
 }
@@ -52,6 +53,7 @@
 
   border: 3px solid #f5c64f;
   border-radius: 25rpx;
+  background-color: #f5c64f;
 }
 
 .todayPlan{
@@ -80,7 +82,7 @@
 }
 
 .startTest{
-  width: 80px;
+  width: 150px;
   height: 30px;
   padding-top: 10px;
   margin-left: auto;
@@ -89,7 +91,7 @@
   border: 1px solid #d88a63;
   border-radius: 20rpx;
   background-color: #f5b619;
-
+  font-size: 15px;
   text-align: center;
 }
 

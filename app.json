@@ -4,7 +4,6 @@
     "pages/notebook/notebook",
     "pages/guide/guide",
     "pages/about/about",
-    "pages/test/test",
     "pages/result/result",
     "pages/question/question",
     "pages/finish/finish",

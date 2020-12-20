@@ -14,6 +14,16 @@ Page({
        url: '../notebook/notebook'
      })
   },
+  toGuide: function() {
+    wx.navigateTo({
+      url: '../guide/guide'
+    })
+ },
+ toAbout: function() {
+  wx.navigateTo({
+    url: '../about/about'
+  })
+},
   waiting: function(){
     wx.showToast({
       title: '敬请期待',
