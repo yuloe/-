@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/result/result",
     "pages/question/question",
     "pages/finish/finish",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/me/me",
     "pages/test/test",
@@ -37,5 +38,8 @@
     ]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
 }

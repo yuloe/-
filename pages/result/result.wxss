@@ -1,0 +1,83 @@
+/* pages/result/result.wxss */
+.container{
+  justify-content: space-around;
+  width: 750rpx;
+  height: 100vh;
+  padding: 25rpx;
+
+  background-color: aqua;
+}
+
+.textArea{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  height: 30vh;
+  width: 100%;
+}
+
+.textArea .text1{
+  width: 500rpx;
+  margin-top: 5vh;
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: center;
+  font-size: 45rpx;
+}
+.textArea .text2{
+  width: 500rpx;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: center;
+  font-size: 35rpx;
+}
+
+.textArea .wrong{
+  padding-left: 48rpx;
+
+  font-size: 28rpx;
+}
+
+scroll-view{
+  height: 50vh;
+  border: 1px solid black
+}
+
+scroll-view  view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 27rpx;
+  width: 600rpx;
+  padding-top: 6rpx;
+  padding-bottom: 6rpx;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid white;
+
+  font-size: 27rpx;
+}
+
+.return{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.return view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  width: 100px;
+  border: 1px solid black;
+}

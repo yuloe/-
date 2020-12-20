@@ -1,34 +1,26 @@
 //index.js
 //获取应用实例
-const {formatTime} = require("../../utils/util")
+const {
+  GetEvedayLog,
+  ChangeEverydayLog,
+  RefreshEverydayLog
+} = require("../../utils/everydayquetion.js")
 const app = getApp()
 
 Page({
   data: {
     rank: 0,
-    rankArr: ["一年级", "二年级", "三年级"],
     typeChoose: false,
-    que: ["10以内加减法", "20以内加减法", "100以内加减法", "表内乘法", "表内除法", "混合运算", "万以内加减法", "多位数乘一位数", "复杂乘除"],
+    queShow: "",
+    queType: ["10以内加减法", "20以内加减法", "100以内加减法", "表内乘法", "表内除法", "混合运算", "万以内加减法", "复杂乘除", "多位数乘一位数"],
     type: [],
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    need2DoNum: 0,
+    reviewNum: 0
   },
   //事件处理函数
-  chooseType: function(){
+  chooseType: function () {
     wx.navigateTo({
       url: '/pages/typeChoose/typeChoose',
-      // events: {
-      //   acceptDateFromOpenedPage: function(data){
-      //     console.log(data)
-      //   },
-      //   someData: function(data){
-      //     console.log(data)
-      //   }
-      // },
-      // success: function(res){
-      //   res.eventChannel.emit('acceptDateFromOpenedPage', {data: 'test'})
-      // }
     })
   },
   showChooseType: function () {
@@ -39,40 +31,55 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+  startTest: function(){
+    if(this.data.type[0] !== 0){
+      app.globalData.exeMode = 0
+      wx.navigateTo({
+        url: '/pages/question/question',
       })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
+    }else{
+      wx.showToast({
+        icon: 'none',
+        title: '请选择题型',
+        duration: 2000
       })
     }
   },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+
+  /* 生命周期函数 */
+  onLoad: function () {
+    RefreshEverydayLog()
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      need2DoNum: GetEvedayLog().needQuestions,
+      reviewNum: GetEvedayLog().needWrongAnswers
     })
+  },
+  onShow: function () {
+    this.setData({
+      type: app.globalData.typeMode
+    })
+    if (this.data.type[0] === 0) {
+      this.setData({
+        queShow: "点击选择题型"
+      })
+      return
+    }
+    if (this.data.type.length === 1) {
+      this.setData({
+        queShow: this.data.queType[this.data.type[0]]
+      })
+    } else if (this.data.type[0] === 1) {
+      this.setData({
+        queShow: "一年级综合"
+      })
+    } else if (this.data.type[0] === 4) {
+      this.setData({
+        queShow: "二年级综合"
+      })
+    } else if (this.data.type[0] === 7) {
+      this.setData({
+        queShow: "三年级综合"
+      })
+    }
   }
 })
