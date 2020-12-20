@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/test/test",
-    "pages/index/index",
-    "pages/result/result",
     "pages/notebook/notebook",
+    "pages/index/index",
+    "pages/guide/guide",
+    "pages/about/about",
+    "pages/test/test",
+    "pages/result/result",
     "pages/question/question",
     "pages/finish/finish",
     "pages/logs/logs",

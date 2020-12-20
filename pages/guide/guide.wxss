@@ -1,0 +1,17 @@
+/* pages/guide/guide.wxss */
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  width: 300rpx;
+  padding: 50rpx;
+}
+
+.text {
+  display: flex;
+  width: 580rpx;
+  font-size: 14px;
+  white-space: pre-wrap;
+}

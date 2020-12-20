@@ -14,8 +14,10 @@
 }
 
 scroll-view{
+  display: flex;
+  flex-direction: row;
   width: 600rpx;
-  height: 50vh;
+  height: 53vh;
   border: 3px solid #f5b619;
   border-radius: 20rpx;
   background-color: #ffdead;
@@ -23,14 +25,11 @@ scroll-view{
 
 .block {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
 
-  height: 80rpx;
-  width: 600rpx;
+  height: 100rpx;
+  width: 550rpx;
   margin-right: auto;
   margin-left: auto;
-
   font-size: 35rpx;
 }
