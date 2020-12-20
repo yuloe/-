@@ -6,7 +6,8 @@ const { GetEvedayLog } = require("../../utils/everydayquetion")
 const {
   GetQuestion,
   GetOrderedWrongQuestion,
-  GenerateQuestionByMode
+  GenerateQuestionByMode,
+  FinishQuestion
 } = require("../../utils/questions")
 
 const appInstance = getApp()
@@ -23,6 +24,7 @@ Page({
       expression: ' ',
       result: 0
     },
+    questiontype: -1,
     questionNum: 50,
     finished: 49,
     result: '?',
@@ -61,6 +63,7 @@ Page({
     }
     let result = parseInt(this.data.result)
     if (JudgeUserAnswer(this.data.question, result)) {
+      FinishQuestion(this.data.questiontype, appInstance.globalData.exeMode)
       wx.showToast({
         icon: 'none',
         title: '回答正确'
@@ -74,8 +77,10 @@ Page({
     }
 
     if(appInstance.globalData.exeMode === 0){
+      let practicequestion = GetQuestion(appInstance.globalData.typeMode)
       this.setData({
-        question: GetQuestion(appInstance.globalData.typeMode),
+        question: practicequestion.question,
+        questiontype: practicequestion.type,
         finished: this.data.finished + 1,
         result: '?'
       })
@@ -146,8 +151,10 @@ Page({
   onLoad: function (options) {
     appInstance.globalData.wrongNum = 0
     if(appInstance.globalData.exeMode === 0){
+      let practicequestion = GetQuestion(appInstance.globalData.typeMode)
       this.setData({
-        question: GetQuestion(appInstance.globalData.typeMode),
+        question: practicequestion.question,
+        questiontype: practicequestion.type,
         questionNum: GetEvedayLog().needQuestions + GetEvedayLog().needWrongAnswers + 1,
         finished: 0,
         result: '?',

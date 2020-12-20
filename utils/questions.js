@@ -11,6 +11,7 @@ const {
   ChangeEverydayLog,
   RefreshEverydayLog
 } = require("./everydayquetion.js")
+const app = getApp()
 
 // generate a randomnum range from minNum to maxNum
 function RandomNum(minNum, maxNum) {
@@ -286,24 +287,39 @@ function GetOrderedWrongQuestion(order) {
 // Question function
 function GetQuestion(mode) {
   let everydayLog = GetEvedayLog()
-  switch (RandomNum(0, 1)) {
+  switch (type = RandomNum(0, 1)) {
     case 0:
       if (everydayLog.needWrongAnswers > 0) {
-        everydayLog.needWrongAnswers--
-        var wrongQuestion = GetRandomWrongQuestion()
-        ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
-        return wrongQuestion.question
+        return {
+          question: wrongQuestion.question,
+          type: type
+        }
       }
-    case 1:
-      if (everydayLog.needQuestions > 0) {
-        everydayLog.needQuestions--
-        ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
-        return GenerateQuestionByMode(mode)
-      }
-      console.log("Have finished all questions Today!\n")
-      break;
-    default:
-      break;
+      case 1:
+        if (everydayLog.needQuestions > 0) {
+          return {
+            question: GenerateQuestionByMode(mode),
+            type: type
+          }
+        }
+        console.log("Have finished all questions Today!\n")
+        break;
+      default:
+        break;
+  }
+}
+
+// finsh one question handler
+function FinshQuestion(type, mode) {
+  if (mode == 0) {
+    var everydayLog = GetEvedayLog()
+    if (type == 0) {
+      everydayLog.needWrongAnswers--
+      ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
+    } else {
+      everydayLog.needQuestions--
+      ChangeEverydayLog(everydayLog.needQuestions, everydayLog.needWrongAnswers, new Date().getDate())
+    }
   }
 }
 
@@ -319,5 +335,6 @@ if (test) {
 module.exports = {
   GetQuestion: GetQuestion,
   GetOrderedWrongQuestion: GetOrderedWrongQuestion,
-  GenerateQuestionByMode: GenerateQuestionByMode
+  GenerateQuestionByMode: GenerateQuestionByMode,
+  FinshQuestion: FinshQuestion
 }
