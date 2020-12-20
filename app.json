@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/about/about",
     "pages/guide/guide",
-    "pages/test/test",
     "pages/index/index",
+    "pages/about/about",
+    "pages/test/test",
     "pages/result/result",
     "pages/notebook/notebook",
     "pages/question/question",

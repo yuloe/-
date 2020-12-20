@@ -1,2 +1,19 @@
 <!--pages/guide/guide.wxml-->
-
+<view class="container">
+  <image src="/static/background1.png"></image>
+  <view class="title">
+    <text>使用指南</text>
+  </view>
+  <view class="text">
+    <p>       每日练习：选择你需要练习的题型，点击“开始练习”，就可以完成每天的练习和复习计划啦！</p>
+  </view>
+  <view class="text">
+    <p>       限时训练：选择你的年级，点击“开始考试”，检验一下自己的学习成果吧！（提示：是综合题目哦）</p>
+  </view>
+  <view class="text">
+    <p>       错题本：复习错题，温故知新！（提示：在“每日练习”中复习3次以上的错题会自动从错题本中删除哦）</p>
+  </view>
+  <view class="text">
+    <p>       完成每天的练习可以获得一枚🌈币，多做一组练习或者完成一次考试也可以获得一枚🌈币哦！获得一定数量的🌈币后就可以在商城里兑换精品课程或者精美礼物啦！</p>
+  </view>
+</view>
