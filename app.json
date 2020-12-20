@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/notebook/notebook",
+    "pages/test/test",
     "pages/index/index",
+    "pages/notebook/notebook",
     "pages/guide/guide",
     "pages/about/about",
-    "pages/test/test",
     "pages/result/result",
     "pages/question/question",
     "pages/finish/finish",
