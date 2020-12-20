@@ -1,7 +1,9 @@
 <view class="container">
   <image src="/static/background1.png"></image>
   <view class="chooseRank">
-    <view class="rank">选择年级</view>
+    <view class="rank"><text>一年级</text></view>
+    <view class="rank"><text>二年级</text></view>
+    <view class="rank"><text>三年级</text></view>
     <!-- 下拉菜单 -->
   </view>
   <view class="startTest">开始考试</view>

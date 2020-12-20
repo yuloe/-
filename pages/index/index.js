@@ -47,14 +47,12 @@ Page({
   },
 
   /* 生命周期函数 */
-  onLoad: function () {
+  onShow: function () {
     RefreshEverydayLog()
     this.setData({
       need2DoNum: GetEvedayLog().needQuestions,
       reviewNum: GetEvedayLog().needWrongAnswers
     })
-  },
-  onShow: function () {
     this.setData({
       type: app.globalData.typeMode
     })
@@ -66,7 +64,7 @@ Page({
     }
     if (this.data.type.length === 1) {
       this.setData({
-        queShow: this.data.queType[this.data.type[0]]
+        queShow: this.data.queType[this.data.type[0] - 1]
       })
     } else if (this.data.type[0] === 1) {
       this.setData({

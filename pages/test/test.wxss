@@ -1,3 +1,25 @@
+.chooseRank{
+  display: flex;
+  justify-content: space-around;
+
+  width: 650rpx;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+}
+
+.chooseRank .rank{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 180rpx;
+  height: 120rpx;
+  border: 1px solid;
+  border-radius: 20rpx;
+}
+
 .startTest {
   display: flex;
 

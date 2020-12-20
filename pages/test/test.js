@@ -5,6 +5,7 @@ Page({
    */
   data: {
     historyScore: 100,
+    rankChoose: 0,
     testHistory: [{
       time: "2020/12/18",
       score: "96"
