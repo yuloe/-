@@ -1,3 +1,16 @@
+const {
+  GetQuestion,
+  GetOrderedWrongQuestion,
+  GenerateQuestionByMode
+} = require("../../utils/questions")
+const {
+  GetWrongSet,
+  SetWrongSet,
+  GetJSONLength,
+  RefreshWrongSet,
+  JudgeUserAnswer
+} = require("../../utils/answerhandler.js")
+
 // pages/notebook/notebook.js
 Page({
 
@@ -5,19 +18,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    wrongSet: [{
-      question: '3*1',
-      result: '5',
-      correctResult: '3'
-    },{
-      question: '3*1',
-      result: '5',
-      correctResult: '3'
-    },{
-      question: '3*1',
-      result: '5',
-      correctResult: '3'
-    }]
+    wrongSet: []
   },
 
   /**
@@ -38,7 +39,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let wrongSet = GetWrongSet()
+    let wrongNum = GetJSONLength(wrongSet)
+    let tempArr = this.data.wrongSet
+    for (let i = 0; i < wrongNum; i++) {
+      tempArr.push({
+        question: JSON.parse(GetOrderedWrongQuestion(i)).question.expression,
+        result: JSON.parse(GetOrderedWrongQuestion(i)).userAnswer,
+        correctResult: JSON.parse(GetOrderedWrongQuestion(i)).question.result
+      })
+    }
+    this.setData({
+      wrongSet: tempArr
+    })
+    console.log(this.data.wrongSet)
   },
 
   /**

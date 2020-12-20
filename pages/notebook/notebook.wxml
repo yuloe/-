@@ -4,7 +4,7 @@
   <view class="notebook"><text>错题本</text></view>
   <scroll-view class="wrongSetBlock" scroll-y="true">
     <view class="block" wx:for="{{wrongSet}}">
-      <text>{{index+1}}.  {{item.question}}={{item.correctResult}} 你的答案:{{item.result}}</text>
+      <text>{{index+1}}. {{item.question}}={{item.correctResult}} 你的答案:{{item.result}}</text>
     </view>
   </scroll-view>
 </view>
