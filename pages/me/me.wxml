@@ -7,7 +7,7 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <view class="namecoin">
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        <view class="coin"><text>金币：</text></view>
+        <view class="coin"><text>🌈币：</text></view>
       </view>
     </block>
   </view>
