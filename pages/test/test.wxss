@@ -41,12 +41,21 @@
   justify-content: center;
   align-items: center;
 
-  height: 200rpx;
+  height: 150rpx;
   font-size: 16px;
 }
 
 .testHistory {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 600rpx;
+  height: 270rpx;
+  border: 1px solid #f5b619;
+  border-radius: 20rpx;
+  background-color: #ffdead;
 }
 
 .title {
@@ -58,7 +67,8 @@
 
 .record {
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
-
   white-space: pre;
 }

@@ -9,11 +9,11 @@
   <view class="highest">
     <text>历史最高：</text>{{historyScore}}分
   </view>
-  <view class="testHistroy">
-    <view class="title"><text>考试记录   时间                得分</text></view>
-    <scroll-view class="testHistroyRecord" scroll-y="true">
+  <view class="testHistory">
+    <view class="title"><text>考试记录   时间                 得分</text></view>
+    <scroll-view class="testHistoryRecord" scroll-y="true">
       <view class="record" wx:for="{{testHistory}}">
-        <text>{{index+1}}              {{item.time}}    {{item.score}}分</text>
+        <text>{{index+1}}            {{item.time}}       {{item.score}}分</text>
       </view>
     </scroll-view>
   </view>
