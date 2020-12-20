@@ -50,8 +50,14 @@
   width: 650rpx;
   margin-top: 5vh;
 
-  border: 1px solid #FFFFFF;
+  border: 3px solid #f5c64f;
   border-radius: 25rpx;
+}
+
+.todayPlan{
+  margin-top: 4vh;
+
+  font-size: 40rpx;
 }
 
 .need2Do, .review{
@@ -62,12 +68,24 @@
   text-align: center;
 }
 
-.startText{
+.need2DoNum, .reviewNum{
+  width: 250rpx;
+  margin-top: 3vh;
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+  margin-bottom: 4vh;
+
+  text-align: center;
+  font-size: 50rpx;
+}
+
+.startTest{
   width: 80px;
   height: 30px;
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 4vh;
   border: 1px solid #d88a63;
   border-radius: 20rpx;
   background-color: #f5b619;

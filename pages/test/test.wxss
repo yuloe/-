@@ -1,14 +1,74 @@
+.chooseRank{
+  display: flex;
+  justify-content: space-around;
+
+  width: 650rpx;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 6vh;
+  margin-bottom: 4vh;
+}
+
+.chooseRank .rank{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 180rpx;
+  height: 120rpx;
+  border: 1px solid;
+  border-radius: 20rpx;
+
+  font-size: 14px;
+}
+
 .startTest {
   display: flex;
 
   width: 500rpx;
   height: 10vh;
-  border: 1px solid #aaa;
+  border: 1px solid #d88a63;
   border-radius: 20rpx;
+  background-color: #f5b619;
+  font-size: 16px;
 
   justify-content: center;
   align-items: center;
 }
+
+.highest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 150rpx;
+  font-size: 16px;
+}
+
 .testHistory {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 600rpx;
+  height: 270rpx;
+  border: 1px solid #f5b619;
+  border-radius: 20rpx;
+  background-color: #ffdead;
+}
+
+.title {
+  display: flex;
+  font-size: 16px;
+
+  white-space: pre;
+}
+
+.record {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  white-space: pre;
 }

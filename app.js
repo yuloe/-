@@ -35,6 +35,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    typeMode: "[1]"
+    typeMode: [0],
+    typeModeForTest: [],
+    exeMode: -1,
+    wrongNum: 0
   }
 })

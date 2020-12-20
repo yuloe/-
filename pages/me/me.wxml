@@ -12,23 +12,23 @@
     </block>
   </view>
   <view class="meinfo">
-    <view class="info" id="notebook" style="background-color: #ff4500">
+    <view class="info" id="notebook" style="background-color: #ff4500" bindtap="toNoteBook">
       <image src="/static/notebook.png"></image>
       <text>错题本</text>
     </view>
-    <view class="info" id="shop" style="background-color: #ffa500">
+    <view class="info" id="shop" style="background-color: #ffa500" bindtap="waiting">
       <image src="/static/shop.png"></image>
       <text>商城</text>
     </view>
-    <view class="info" id="doc" style="background-color: #7fff00">
+    <view class="info" id="doc" style="background-color: #7fff00" bindtap="waiting">
       <image src="/static/doc.png"></image>
       <text>学习资料</text>
     </view>
-    <view class="info" id="guide" style="background-color: #00ffff">
+    <view class="info" id="guide" style="background-color: #00ffff" bindtap="waiting">
       <image src="/static/guide.png"></image>
       <text>使用指南</text>
     </view>
-    <view class="info" id="about" style="background-color: #ee82ee">
+    <view class="info" id="about" style="background-color: #ee82ee" bindtap="waiting">
       <image src="/static/about.png"></image>
       <text>关于我们</text>
     </view>

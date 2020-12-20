@@ -1,0 +1,88 @@
+/* pages/result/result.wxss */
+.container{
+  justify-content: space-around;
+  width: 750rpx;
+  height: 100vh;
+  padding: 25rpx;
+}
+
+.textArea{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  height: 30vh;
+  width: 100%;
+}
+
+.textArea .text1{
+  width: 500rpx;
+  margin-top: 5vh;
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: center;
+  font-size: 50rpx;
+}
+.textArea .text2{
+  width: 500rpx;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: center;
+  font-size: 45rpx;
+}
+
+.textArea .wrong{
+  padding-left: 58rpx;
+
+  font-size: 45rpx;
+}
+
+scroll-view{
+  width: 600rpx;
+  height: 50vh;
+  border: 3px solid #f5b619;
+  border-radius: 20rpx;
+  background-color: #ffdead;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  height: 200rpx;
+  width: 600rpx;
+  margin-right: auto;
+  margin-left: auto;
+
+  font-size: 35rpx;
+}
+
+.block1 {
+  font-size: 40rpx;
+}
+
+.return{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+}
+
+.return view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  width: 100px;
+  border: 1px solid #f5b619;
+  border-radius: 20rpx;
+  background-color: #f5b619;
+}

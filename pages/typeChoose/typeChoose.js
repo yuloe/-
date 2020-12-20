@@ -7,11 +7,15 @@ Page({
   typeTap: function(e){
     const appInstance  = getApp()
     console.log(appInstance.globalData.typeMode = JSON.parse(e.currentTarget.id))
+    wx.navigateBack({
+      delta: 1,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(1)
   },
 
   /**

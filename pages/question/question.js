@@ -1,4 +1,7 @@
-const { JudgeUserAnswer } = require("../../utils/answerhandler")
+const {
+  JudgeUserAnswer
+} = require("../../utils/answerhandler")
+const { GetEvedayLog } = require("../../utils/everydayquetion")
 // pages/question/question.js
 const {
   GetQuestion,
@@ -6,22 +9,27 @@ const {
   GenerateQuestionByMode
 } = require("../../utils/questions")
 
+const appInstance = getApp()
+
 Page({
-  /**
-   * 页面的初始数据
-   */
+  /*页面的初始数据*/
   data: {
-    time: '10:00',
+    second: 100,
+    oneButton: [{
+      text: '确认'
+    }],
     question: {
       question_type: 0,
       expression: ' ',
       result: 0
     },
     questionNum: 50,
-    finished: 0,
+    finished: 49,
     result: '?',
     isAccomplishTest: false,
-    isTimeOver: false
+    isTimeOver: false,
+    timer1: NaN,
+    timer2: NaN
   },
   /* 用户处理函数 */
   clickKeyBoard: function (e) {
@@ -43,88 +51,121 @@ Page({
       })
     }
   },
-  submit: function(){
-    let result = this.data.result === '?' ? NaN : parseInt(this.data.result)
-    if(JudgeUserAnswer(this.data.question, result)){
+  submit: function () {
+    if (this.data.result === '?') {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入答案'
+      })
+      return
+    }
+    let result = parseInt(this.data.result)
+    if (JudgeUserAnswer(this.data.question, result)) {
       wx.showToast({
         icon: 'none',
         title: '回答正确'
       })
-    }else{
+    } else {
+      appInstance.globalData.wrongNum++
       wx.showToast({
         icon: 'none',
         title: '回答错误'
       })
     }
-    const appInstance = getApp()
-    this.setData({
-      question: GetQuestion(JSON.parse(appInstance.globalData.typeMode)),
-      finished: this.data.finished + 1,
-      result: '?'
-    })
-    if(this.data.finished === 50){
 
+    if(appInstance.globalData.exeMode === 0){
+      this.setData({
+        question: GetQuestion(appInstance.globalData.typeMode),
+        finished: this.data.finished + 1,
+        result: '?'
+      })
+    }else{
+      this.setData({
+        question: GenerateQuestion(appInstance.globalData.typeModeForTest),
+        finished: this.data.finished + 1,
+        result: '?'
+      })
     }
   },
-  accomplishTest: function(){
-
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    const appInstance = getApp()
+  quitTest: function () {
     this.setData({
-      question: GetQuestion(JSON.parse(appInstance.globalData.typeMode))
+      isAccomplishTest: true
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  /* 完成测试，做完所有题目,显示对话框 */
+  accomplishTest: function (that) {
+    let finished = that.data.questionNum - that.data.finished
+    if (finished === 0) {
+      that.setData({
+        isAccomplishTest: true
+      })
+      console.log(this.data.isAccomplishTest)
+      return
+    }
+    this.setData({
+      timer1: setTimeout(function(){
+        console.log("exe ing")
+        that.accomplishTest(that)
+      }, 500)
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    console.log("show")
+  /* 前往结果页面 */
+  tapDialogButton: function () {
+    console.log("leave que Page")
+    if(this.data.timer1 !== NaN){
+      clearTimeout(this.data.timer1)
+    }
+    if(this.data.timer2 !== NaN){
+      clearTimeout(this.data.timer2)
+    }
+    wx.navigateTo({
+      url: '/pages/result/result',
+    })
+    /* 需要完成定向到结果页面的 */
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  /* 倒计时 当超时时，显示对话框*/
+  countdown: function (that) {
+    let second = that.data.second
+    if (second === 0) {
+      that.setData({
+        isTimeOver: true
+      })
+      return
+    }
+    this.setData({
+      timer2: setTimeout(function () {
+        console.log("timing ing")
+        that.setData({
+          second: second - 1
+        })
+        that.countdown(that)
+      }, 1000)
+    })
   },
+  /*生命周期函数--监听页面加载*/
+  onLoad: function (options) {
+    appInstance.globalData.wrongNum = 0
+    if(appInstance.globalData.exeMode === 0){
+      this.setData({
+        question: GetQuestion(appInstance.globalData.typeMode),
+        questionNum: GetEvedayLog().needQuestions + GetEvedayLog().needWrongAnswers + 1,
+        finished: 0,
+        result: '?',
+        second: '--'
+      })
+    }else{
+      this.setData({
+        question: GenerateQuestion(appInstance.globalData.typeModeForTest),
+        questionNum: 50,
+        finished: 0,
+        result: '?',
+        second: 500
+      })
+    }
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+    this.accomplishTest(this)
+    if(appInstance.globalData.exeMode === 1){
+      this.countdown(this)
+    }
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
