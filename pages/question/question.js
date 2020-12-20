@@ -9,6 +9,8 @@ const {
   GenerateQuestionByMode
 } = require("../../utils/questions")
 
+const appInstance = getApp()
+
 Page({
   /*页面的初始数据*/
   data: {
@@ -25,7 +27,9 @@ Page({
     finished: 49,
     result: '?',
     isAccomplishTest: false,
-    isTimeOver: false
+    isTimeOver: false,
+    timer1: NaN,
+    timer2: NaN
   },
   /* 用户处理函数 */
   clickKeyBoard: function (e) {
@@ -62,12 +66,13 @@ Page({
         title: '回答正确'
       })
     } else {
+      appInstance.globalData.wrongNum++
       wx.showToast({
         icon: 'none',
         title: '回答错误'
       })
     }
-    const appInstance = getApp()
+
     if(appInstance.globalData.exeMode === 0){
       this.setData({
         question: GetQuestion(appInstance.globalData.typeMode),
@@ -97,14 +102,22 @@ Page({
       console.log(this.data.isAccomplishTest)
       return
     }
-    let time = setTimeout(function () {
-      console.log(1)
-      that.accomplishTest(that)
-    }, 500)
+    this.setData({
+      timer1: setTimeout(function(){
+        console.log("exe ing")
+        that.accomplishTest(that)
+      }, 500)
+    })
   },
   /* 前往结果页面 */
   tapDialogButton: function () {
     console.log("leave que Page")
+    if(this.data.timer1 !== NaN){
+      clearTimeout(this.data.timer1)
+    }
+    if(this.data.timer2 !== NaN){
+      clearTimeout(this.data.timer2)
+    }
     wx.navigateTo({
       url: '/pages/result/result',
     })
@@ -119,16 +132,19 @@ Page({
       })
       return
     }
-    let time = setTimeout(function () {
-      that.setData({
-        second: second - 1
-      })
-      that.countdown(that)
-    }, 1000)
+    this.setData({
+      timer2: setTimeout(function () {
+        console.log("timing ing")
+        that.setData({
+          second: second - 1
+        })
+        that.countdown(that)
+      }, 1000)
+    })
   },
   /*生命周期函数--监听页面加载*/
   onLoad: function (options) {
-    const appInstance = getApp()
+    appInstance.globalData.wrongNum = 0
     if(appInstance.globalData.exeMode === 0){
       this.setData({
         question: GetQuestion(appInstance.globalData.typeMode),

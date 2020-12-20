@@ -10,7 +10,6 @@ function JudgeUserAnswer(question, userAnswer) {
     }
     var wrongSet = GetWrongSet()
     wrongSet.push(JSON.stringify(wrongQuestion))
-    console.log(wrongSet)
     SetWrongSet(wrongSet)
     return false
   }
