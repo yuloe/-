@@ -1,9 +1,9 @@
 <view class="container">
   <image src="/static/background1.png"></image>
   <view class="chooseRank">
-    <view id="1" style="background-color: #fa8072" class="rank {{currentRank === 1 ? 'active' : ' '}}" bindtap="chooseRank"><text>一年级</text></view>
-    <view id="2" style="background-color: #00bfff" class="rank {{currentRank === 2 ? 'active' : ' '}}" bindtap="chooseRank"><text>二年级</text></view>
-    <view id="3" style="background-color: #8470ff" class="rank {{currentRank === 3 ? 'active' : ' '}}" bindtap="chooseRank"><text>三年级</text></view>
+    <view id="1" style="background-color: #fa8072" class="rank {{currentRank == 1 ? 'active' : ''}}" bindtap="chooseRank"><text>一年级</text></view>
+    <view id="2" style="background-color: #00bfff" class="rank {{currentRank == 2 ? 'active' : ''}}" bindtap="chooseRank"><text>二年级</text></view>
+    <view id="3" style="background-color: #8470ff" class="rank {{currentRank == 3 ? 'active' : ''}}" bindtap="chooseRank"><text>三年级</text></view>
   </view>
   <view class="startTest" bindtap='startTest'>开始考试</view>
   <view class="highest">
