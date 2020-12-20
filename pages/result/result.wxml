@@ -1,13 +1,15 @@
 <!--pages/result/result.wxml-->
 <view class="container">
+  <image src="/static/background1.png"></image>
   <view class="textArea">
     <view class="text1"><text>你一共答对了 {{correctNum}} 题！</text></view>
     <view class="text2"><text>继续加油哦！</text></view>
-    <view class="wrong">错题集</view>
+    <view class="wrong">本次错题</view>
   </view>
   <scroll-view class="wrongSetBlock" scroll-y="true">
-    <view wx:for="{{wrongSet}}">
-      <text>{{item.question}} 正确答案是:{{item.correctResult}} 你的答案:{{item.result}}</text>
+    <view class="block" wx:for="{{wrongSet}}">
+      <view class="block1"><text>{{item.question}}</text></view>
+      <view class="block2"><text>正确答案是:{{item.correctResult}}  你的答案:{{item.result}}</text></view>
     </view>
   </scroll-view>
   <view class="return"><view><text>返回首页</text></view></view>

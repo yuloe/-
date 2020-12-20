@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    wrongSet: [{
+      question: '3*1',
+      result: '5',
+      correctResult: '3'
+    },{
+      question: '3*1',
+      result: '5',
+      correctResult: '3'
+    },{
+      question: '3*1',
+      result: '5',
+      correctResult: '3'
+    }]
   },
 
   /**

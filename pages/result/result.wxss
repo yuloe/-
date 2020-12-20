@@ -4,8 +4,6 @@
   width: 750rpx;
   height: 100vh;
   padding: 25rpx;
-
-  background-color: aqua;
 }
 
 .textArea{
@@ -24,7 +22,7 @@
   margin-left: auto;
 
   text-align: center;
-  font-size: 45rpx;
+  font-size: 50rpx;
 }
 .textArea .text2{
   width: 500rpx;
@@ -34,42 +32,47 @@
   margin-left: auto;
 
   text-align: center;
-  font-size: 35rpx;
+  font-size: 45rpx;
 }
 
 .textArea .wrong{
-  padding-left: 48rpx;
+  padding-left: 58rpx;
 
-  font-size: 28rpx;
+  font-size: 45rpx;
 }
 
 scroll-view{
+  width: 600rpx;
   height: 50vh;
-  border: 1px solid black
+  border: 3px solid #f5b619;
+  border-radius: 20rpx;
+  background-color: #ffdead;
 }
 
-scroll-view  view{
+.block {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
-  height: 27rpx;
+  height: 200rpx;
   width: 600rpx;
-  padding-top: 6rpx;
-  padding-bottom: 6rpx;
-  margin-top: 15px;
-  margin-bottom: 15px;
   margin-right: auto;
   margin-left: auto;
-  border: 1px solid white;
 
-  font-size: 27rpx;
+  font-size: 35rpx;
+}
+
+.block1 {
+  font-size: 40rpx;
 }
 
 .return{
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-size: 18px;
 }
 
 .return view{
@@ -79,5 +82,7 @@ scroll-view  view{
 
   height: 50px;
   width: 100px;
-  border: 1px solid black;
+  border: 1px solid #f5b619;
+  border-radius: 20rpx;
+  background-color: #f5b619;
 }
