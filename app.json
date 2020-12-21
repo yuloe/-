@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/question/question",
     "pages/typeChoose/typeChoose",
     "pages/test/test",
     "pages/notebook/notebook",
     "pages/guide/guide",
     "pages/about/about",
     "pages/result/result",
-    "pages/question/question",
     "pages/finish/finish",
     "pages/logs/logs",
     "pages/me/me"

@@ -20,11 +20,19 @@
 }
 
 .progress{
+  position: relative;
   width: 500rpx;
   padding-left: 100rpx;
   text-align: left;
 
   font-size: 35rpx;
+}
+.progress image {
+  position: absolute;
+  width: 70rpx;
+  height: 70rpx;
+  left: 20rpx;
+  top: 5rpx;
 }
 
 /* 算术题样式 */
