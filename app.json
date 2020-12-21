@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/question/question",
+    "pages/index/index",
     "pages/typeChoose/typeChoose",
     "pages/test/test",
     "pages/notebook/notebook",
