@@ -4,7 +4,7 @@
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <view class="namecoin">
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         <view class="coin"><text>🌈币：</text><text>{{userInfo.rainbowCoin}}</text></view>

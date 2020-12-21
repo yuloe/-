@@ -1,13 +1,16 @@
-const { GetEvedayLog } = require("./everydayquetion")
+const {
+  GetEvedayLog
+} = require("./everydayquetion")
 
 const app = getApp()
 // get userinfo
-function GetUserInfo(){
-  try{
+function GetUserInfo() {
+  try {
     let value = wx.getStorageSync('userinfo')
-    if(value) return value
-    else{
+    if (value) return value
+    else {
       let userInfo = {
+        hasUserInfo: false,
         nickName: "未登录",
         avatarUrl: "/static/unlogin.png",
         rainbowCoin: 0,
@@ -16,16 +19,16 @@ function GetUserInfo(){
         everydayLogID: 'defaulteverydaylog'
       }
       SetUserInfo(userInfo)
-      return GetUserInfo()
+      return userInfo
     }
-  }catch(e){
+  } catch (e) {
     console.log("Error: Can not get userinfo storage!\n")
     console.log(e)
   }
 }
 
 // set userinfo
-function SetUserInfo(userInfo){
+function SetUserInfo(userInfo) {
   try {
     wx.setStorageSync('userinfo', userInfo)
   } catch (error) {
@@ -37,6 +40,7 @@ function SetUserInfo(userInfo){
 // add userinfo
 function RefreshUserInfo(){
   let userInfo = {
+    hasUserInfo: false,
     nickName: "未登录",
     avatarUrl: "/static/unlogin.png",
     rainbowCoin: 0,
@@ -46,11 +50,11 @@ function RefreshUserInfo(){
   }
   if(app.globalData.hasUserInfo === true){
     console.log(app.globalData.userInfo)
-    let rainbowCoin = GetUserInfo().rainbowCoin
     userInfo = {
+      hasUserInfo: true,
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      rainbowCoin: rainbowCoin,
+      rainbowCoin: GetUserInfo().rainbowCoin,
       wrongSetID: app.globalData.userInfo.nickName + 'wrongset',
       testLogID: app.globalData.userInfo.nickName + 'testlog',
       everydayLogID:  app.globalData.userInfo.nickName + 'everydaylog'
@@ -61,7 +65,7 @@ function RefreshUserInfo(){
 }
 
 // add rainbowcoin
-function AddRainbowCoin(){
+function AddRainbowCoin() {
   let userInfo = GetUserInfo()
   console.log(userInfo.rainbowCoin)
   userInfo.rainbowCoin++
@@ -69,7 +73,7 @@ function AddRainbowCoin(){
 }
 
 module.exports = {
-  GetUserInfo:GetUserInfo,
-  RefreshUserInfo:RefreshUserInfo,
-  AddRainbowCoin:AddRainbowCoin
+  GetUserInfo: GetUserInfo,
+  RefreshUserInfo: RefreshUserInfo,
+  AddRainbowCoin: AddRainbowCoin
 }

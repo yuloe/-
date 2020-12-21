@@ -113,7 +113,6 @@ Page({
         isAccomplishTest: true
       })
       AddRainbowCoin()
-      console.log(GetUserInfo())
       if (appInstance.globalData.exeMode === 1) {
         AddTestHistory(appInstance.globalData.correctNum * 2)
       }
