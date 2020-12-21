@@ -1,5 +1,5 @@
 /* pages/result/result.wxss */
-.container{
+.container {
   justify-content: space-around;
   width: 750rpx;
   height: 100vh;
@@ -7,7 +7,7 @@
   padding-top: 5vh;
 }
 
-.textArea{
+.textArea {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-.textArea .text1{
+.textArea .text1 {
   width: 500rpx;
   margin-top: 5vh;
   margin-right: auto;
@@ -25,7 +25,8 @@
   text-align: center;
   font-size: 50rpx;
 }
-.textArea .text2{
+
+.textArea .text2 {
   width: 500rpx;
   margin-top: 3vh;
   margin-bottom: 3vh;
@@ -36,13 +37,13 @@
   font-size: 45rpx;
 }
 
-.textArea .wrong{
+.textArea .wrong {
   padding-left: 58rpx;
 
   font-size: 45rpx;
 }
 
-scroll-view{
+scroll-view {
   width: 600rpx;
   height: 50vh;
   border: 3px solid #f5b619;
@@ -68,7 +69,7 @@ scroll-view{
   font-size: 40rpx;
 }
 
-.return{
+.return {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +77,7 @@ scroll-view{
   font-size: 18px;
 }
 
-.return view{
+.return view {
   display: flex;
   justify-content: center;
   align-items: center;

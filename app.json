@@ -19,8 +19,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "每日练习",
         "iconPath": "static/index.png",

@@ -112,7 +112,14 @@ Page({
       this.setData({
         isAccomplishTest: true
       })
-      AddRainbowCoin()
+      let coins = 0
+      if (appInstance.globalData.exeMode === 1) {
+        coins = 4
+      }
+      console.log(coins)
+      for (; coins >= 0; coins--) {
+        AddRainbowCoin()
+      }
       if (appInstance.globalData.exeMode === 1) {
         AddTestHistory(appInstance.globalData.correctNum * 2)
       }
@@ -123,6 +130,7 @@ Page({
       isAccomplishTest: true
     })
     if (appInstance.globalData.exeMode === 1) {
+      console.log("exeMode")
       AddTestHistory(appInstance.globalData.correctNum * 2)
     }
   },

@@ -35,20 +35,19 @@ Page({
       currentRank: currentRank,
       type: appInstance.globalData.typeModeForTest
     })
-    console.log(parseInt(options.currentTarget.id))
   },
   startTest: function () {
-      if (this.data.type[0] !== 0) {
-        appInstance.globalData.exeMode = 1
-        wx.redirectTo({
-          url: '/pages/question/question',
-        })
-      } else {
-        wx.showToast({
-          icon: 'none',
-          title: '请选择年级',
-          duration: 2000
-        })
+    if (this.data.type[0] !== 0) {
+      appInstance.globalData.exeMode = 1
+      wx.redirectTo({
+        url: '/pages/question/question',
+      })
+    } else {
+      wx.showToast({
+        icon: 'none',
+        title: '请选择年级',
+        duration: 2000
+      })
     }
   },
   /**
@@ -67,6 +66,5 @@ Page({
       historyScore: GetHighScore(),
       type: appInstance.globalData.typeModeForTest
     })
-    console.log(this.data.testHistory)
   }
 })
