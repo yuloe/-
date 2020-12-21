@@ -13,7 +13,7 @@ Page({
     historyScore: 0,
     currentRank: 0,
     testHistory: [],
-    type: [1, 2, 3]
+    type: [0]
   },
 
   chooseRank: function (options) {
@@ -37,7 +37,7 @@ Page({
     })
   },
   startTest: function () {
-    if (this.data.type[0] !== 0) {
+    if (this.data.currentRank !== 0) {
       appInstance.globalData.exeMode = 1
       wx.redirectTo({
         url: '/pages/question/question',
