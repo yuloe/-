@@ -58,7 +58,7 @@ function SetWrongSet(wrongSet) {
 // refresh the wrong question set
 function RefreshWrongSet() {
   var wrongSet = GetWrongSet()
-  for (var i = GetJSONLength(wrongSet) - 1; i >= 0; i--) {
+  for (var i = wrongSet.length - 1; i >= 0; i--) {
     if (wrongSet[i].reviewTimes == 3) {
       wrongSet.splice(i, 1)
     }

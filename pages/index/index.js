@@ -40,12 +40,12 @@ Page({
   },
   startTest: function () {
     if (GetEvedayLog().needQuestions === 0 && GetEvedayLog().needWrongAnswers === 0) {
-      ChangeEverydayLog(20, Math.min(5, GetJSONLength(GetWrongSet())), new Date().getDate())
+      ChangeEverydayLog(20, Math.min(5, GetWrongSet().length), new Date().getDate())
       this.setData({
         need2DoNum:20,
-        reviewNum:Math.min(5, GetJSONLength(GetWrongSet()))
+        reviewNum:Math.min(5, GetWrongSet().length)
       })
-      console.log(GetJSONLength(GetWrongSet()))
+      console.log(GetWrongSet().length)
     }else{
       if (this.data.type[0] !== 0) {
         app.globalData.exeMode = 0
