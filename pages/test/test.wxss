@@ -1,4 +1,4 @@
-.chooseRank{
+.chooseRank {
   display: flex;
   justify-content: space-around;
 
@@ -9,7 +9,7 @@
   margin-bottom: 4vh;
 }
 
-.chooseRank .rank{
+.chooseRank .rank {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,15 +21,15 @@
   font-size: 14px;
 }
 
-.active1{
+.active1 {
   border: 2px solid #fa8072;
 }
 
-.active2{
+.active2 {
   border: 2px solid #00bfff;
 }
 
-.active3{
+.active3 {
   border: 2px solid #8470ff;
 }
 
@@ -79,17 +79,19 @@
   text-align: center;
 }
 
-.record{
-  width: 20%;
-}
-.time{
-  width: 30%;
-}
-.score{
+.record {
   width: 20%;
 }
 
-.testHistoryRecord view{
+.time {
+  width: 30%;
+}
+
+.score {
+  width: 20%;
+}
+
+.testHistoryRecord view {
   display: flex;
   justify-content: space-around;
   font-size: 30rpx;

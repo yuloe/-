@@ -42,11 +42,11 @@ Page({
     if (GetEvedayLog().needQuestions === 0 && GetEvedayLog().needWrongAnswers === 0) {
       ChangeEverydayLog(20, Math.min(5, GetWrongSet().length), new Date().getDate())
       this.setData({
-        need2DoNum:20,
-        reviewNum:Math.min(5, GetWrongSet().length)
+        need2DoNum: 20,
+        reviewNum: Math.min(5, GetWrongSet().length)
       })
       console.log(GetWrongSet().length)
-    }else{
+    } else {
       if (this.data.type[0] !== 0) {
         app.globalData.exeMode = 0
         wx.redirectTo({

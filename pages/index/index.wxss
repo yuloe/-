@@ -43,7 +43,7 @@
 }
 
 /* 今日计划部分 */
-.plan{
+.plan {
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -56,13 +56,14 @@
   background-color: #f5c64f;
 }
 
-.todayPlan{
+.todayPlan {
   margin-top: 4vh;
 
   font-size: 40rpx;
 }
 
-.need2Do, .review{
+.need2Do,
+.review {
   width: 250rpx;
   margin-right: 30rpx;
   margin-left: 30rpx;
@@ -70,7 +71,8 @@
   text-align: center;
 }
 
-.need2DoNum, .reviewNum{
+.need2DoNum,
+.reviewNum {
   width: 250rpx;
   margin-top: 3vh;
   margin-right: 30rpx;
@@ -81,7 +83,7 @@
   font-size: 50rpx;
 }
 
-.startTest{
+.startTest {
   width: 150px;
   height: 30px;
   padding-top: 10px;
@@ -95,7 +97,7 @@
   text-align: center;
 }
 
-.todayPlan{
+.todayPlan {
   width: 100%;
   text-align: center;
 }

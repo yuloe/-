@@ -33,7 +33,7 @@ Page({
       icon: "none"
     })
   },
-  onLoad: function() {
+  onShow: function () {
     console.log(this.data.userInfo)
     console.log(GetUserInfo())
     this.setData({

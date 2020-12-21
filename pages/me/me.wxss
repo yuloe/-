@@ -31,7 +31,7 @@ body {
   align-items: center;
 }
 
-.userinfo-nickname{
+.userinfo-nickname {
   display: flex;
 
   width: 150rpx;
@@ -44,7 +44,7 @@ body {
   flex-direction: column;
 }
 
-.info{
+.info {
   display: flex;
 
   width: 500rpx;
