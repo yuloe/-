@@ -59,7 +59,7 @@ function SetWrongSet(wrongSet) {
 function RefreshWrongSet() {
   var wrongSet = GetWrongSet()
   for (var i = wrongSet.length - 1; i >= 0; i--) {
-    if (wrongSet[i].reviewTimes == 3) {
+    if (wrongSet[i].reviewTimes >= 3) {
       wrongSet.splice(i, 1)
     }
   }

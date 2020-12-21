@@ -7,5 +7,5 @@
       <text>{{index+1}}. {{item.question}}={{item.correctResult}} 你的答案：{{item.result}} 复习次数：{{item.reviewTimes}}</text>
     </view>
   </scroll-view>
-  <view class="review"><text>重做错题</text></view>
+  <view class="review" bindtap="reviewQuestion"><text>重做错题</text></view>
 </view>

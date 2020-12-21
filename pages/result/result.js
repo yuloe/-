@@ -23,8 +23,15 @@ Page({
   },
 
   returnIndex: function () {
+    let url = '/pages/index/index'
+    if(app.globalData.exeMode === 1){
+      url = '/pages/test/test'
+    } else if (app.globalData.exeMode === 2){
+      url = '/pages/me/me'
+    }
+    console.log(url)
     wx.switchTab({
-      url: '/pages/index/index',
+      url: url,
     })
   },
   /**
@@ -49,40 +56,5 @@ Page({
       wrongSet: tempArr
     })
     console.log(this.data.wrongSet)
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

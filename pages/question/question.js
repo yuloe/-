@@ -1,5 +1,7 @@
 const {
-  JudgeUserAnswer
+  JudgeUserAnswer,
+  GetWrongSet,
+  SetWrongSet
 } = require("../../utils/answerhandler")
 const {
   GetEvedayLog
@@ -100,9 +102,18 @@ Page({
           finished: this.data.finished + 1,
           result: '?'
         })
-      } else {
+      } else if (appInstance.globalData.exeMode === 1) {
         this.setData({
           question: GenerateQuestionByMode(appInstance.globalData.typeModeForTest),
+          finished: this.data.finished + 1,
+          result: '?'
+        })
+      } else {
+        let wrongSet = GetWrongSet()
+        wrongSet[this.data.finished - 1].reviewTimes++
+        SetWrongSet(wrongSet)
+        this.setData({
+          question: wrongSet[this.data.finished].question,
           finished: this.data.finished + 1,
           result: '?'
         })
@@ -112,12 +123,17 @@ Page({
       this.setData({
         isAccomplishTest: true
       })
-      let coins = 0
+      let coins = 1
       if (appInstance.globalData.exeMode === 1) {
-        coins = 4
+        coins = 5
+      } else if (appInstance.globalData.exeMode === 2) {
+        let wrongSet = GetWrongSet()
+        wrongSet[this.data.finished - 1].reviewTimes++
+        SetWrongSet(wrongSet)
+        coins = 0
       }
       console.log(coins)
-      for (; coins >= 0; coins--) {
+      for (; coins > 0; coins--) {
         AddRainbowCoin()
       }
       if (appInstance.globalData.exeMode === 1) {
@@ -185,13 +201,21 @@ Page({
         result: '?',
         second: '--'
       })
-    } else {
+    } else if (appInstance.globalData.exeMode === 1) {
       this.setData({
         question: GenerateQuestionByMode(appInstance.globalData.typeModeForTest),
         questionNum: 50,
         finished: 1,
         result: '?',
         second: 500
+      })
+    } else {
+      this.setData({
+        question: GetOrderedWrongQuestion(0).question,
+        questionNum: GetWrongSet().length,
+        finished: 1,
+        result: '?',
+        second: '--'
       })
     }
 

@@ -10,7 +10,7 @@ const {
   RefreshWrongSet,
   JudgeUserAnswer
 } = require("../../utils/answerhandler.js")
-
+const appInstance = getApp()
 // pages/notebook/notebook.js
 Page({
 
@@ -21,28 +21,12 @@ Page({
     wrongSet: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
+    appInstance.globalData.exeMode = 0
+    RefreshWrongSet()
     let wrongSet = GetWrongSet()
     let wrongNum = wrongSet.length
     console.log(wrongSet)
-    console.log(wrongSet.length)
     let tempArr = this.data.wrongSet
     for (let i = 0; i < wrongNum; i++) {
       tempArr.push({
@@ -56,5 +40,11 @@ Page({
       wrongSet: tempArr
     })
     console.log(this.data.wrongSet)
+  },
+  reviewQuestion: function () {
+    appInstance.globalData.exeMode = 2
+    wx.redirectTo({
+      url: '/pages/question/question',
+    })
   }
 })
