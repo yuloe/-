@@ -1,19 +1,28 @@
 <view class="container">
   <image src="/static/background1.png"></image>
   <view class="chooseRank">
-    <view id="1" style="background-color: #fa8072" class="rank {{currentRank == 1 ? 'active' : ''}}" bindtap="chooseRank"><text>一年级</text></view>
-    <view id="2" style="background-color: #00bfff" class="rank {{currentRank == 2 ? 'active' : ''}}" bindtap="chooseRank"><text>二年级</text></view>
-    <view id="3" style="background-color: #8470ff" class="rank {{currentRank == 3 ? 'active' : ''}}" bindtap="chooseRank"><text>三年级</text></view>
+    <view id="1" style="background-color: #fa8072" class="rank {{currentRank == 1 ? 'active1' : ''}}"
+      bindtap="chooseRank"><text>一年级</text></view>
+    <view id="2" style="background-color: #00bfff" class="rank {{currentRank == 2 ? 'active2' : ''}}"
+      bindtap="chooseRank"><text>二年级</text></view>
+    <view id="3" style="background-color: #8470ff" class="rank {{currentRank == 3 ? 'active3' : ''}}"
+      bindtap="chooseRank"><text>三年级</text></view>
   </view>
   <view class="startTest" bindtap='startTest'>开始考试</view>
   <view class="highest">
     <text>历史最高：</text>{{historyScore}}分
   </view>
   <view class="testHistory">
-    <view class="title"><text>考试记录        时间            得分   </text></view>
+    <view class="title">
+      <view class="record">考试记录</view>
+      <view class="time">时间</view>
+      <view class="score">得分</view>
+    </view>
     <scroll-view class="testHistoryRecord" scroll-y="true">
-      <view class="record" wx:for="{{testHistory}}">
-        <text>    {{index+1}}         {{item.testTime}}      {{item.testScore}}分</text>
+      <view wx:for="{{testHistory}}">
+        <view class="record">{{index+1}}</view>
+        <view class="time">{{item.testTime}}</view>
+        <view class="score">{{item.testScore}}分</view>
       </view>
     </scroll-view>
   </view>

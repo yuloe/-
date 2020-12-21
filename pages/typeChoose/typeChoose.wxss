@@ -33,6 +33,5 @@
   margin-bottom: 1vh;
   margin-right: 10rpx;
   margin-left: 10rpx;
-  border: 1px solid black;
   border-radius: 20rpx;
 }
