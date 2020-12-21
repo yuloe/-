@@ -1,5 +1,5 @@
 /* pages/finish/finish.wxss */
-.text{
+.text {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,8 @@
   height: 90rpx;
   margin-top: 10vh;
 }
-.grade{
+
+.grade {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +22,7 @@
   margin-bottom: 5vh;
 }
 
-.confirm{
+.confirm {
   display: flex;
   justify-content: center;
   align-items: center;

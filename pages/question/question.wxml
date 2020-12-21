@@ -54,7 +54,7 @@
   </view>
 
   <view class="quit" bindtap="quitTest"><text>结束测试</text></view>
-  <mp-dialog  show="{{isAccomplishTest || isTimeOver}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
-        <view>{{isTimeOver === true ? '时间到！' : '测试结束！'}}</view>
-    </mp-dialog>
+  <mp-dialog show="{{isAccomplishTest || isTimeOver}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
+    <view>{{isTimeOver === true ? '时间到！' : '测试结束！'}}</view>
+  </mp-dialog>
 </view>

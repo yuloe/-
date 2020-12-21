@@ -38,7 +38,7 @@ function SetUserInfo(userInfo) {
 }
 
 // add userinfo
-function RefreshUserInfo(){
+function RefreshUserInfo() {
   let userInfo = {
     hasUserInfo: false,
     nickName: "未登录",
@@ -48,7 +48,7 @@ function RefreshUserInfo(){
     testLogID: 'defaulttestlog',
     everydayLogID: 'defaulteverydaylog'
   }
-  if(app.globalData.hasUserInfo === true){
+  if (app.globalData.hasUserInfo === true) {
     console.log(app.globalData.userInfo)
     userInfo = {
       hasUserInfo: true,
@@ -57,7 +57,7 @@ function RefreshUserInfo(){
       rainbowCoin: GetUserInfo().rainbowCoin,
       wrongSetID: app.globalData.userInfo.nickName + 'wrongset',
       testLogID: app.globalData.userInfo.nickName + 'testlog',
-      everydayLogID:  app.globalData.userInfo.nickName + 'everydaylog'
+      everydayLogID: app.globalData.userInfo.nickName + 'everydaylog'
     }
   }
   console.log(userInfo)
@@ -67,7 +67,6 @@ function RefreshUserInfo(){
 // add rainbowcoin
 function AddRainbowCoin() {
   let userInfo = GetUserInfo()
-  console.log(userInfo.rainbowCoin)
   userInfo.rainbowCoin++
   SetUserInfo(userInfo)
 }

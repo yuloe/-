@@ -1,5 +1,5 @@
 /* pages/question/question.wxss */
-.container{
+.container {
   justify-content: space-around;
 
   width: 750rpx;
@@ -10,7 +10,7 @@
   background-color: #F4ED4F;
 }
 
-.timer{
+.timer {
   width: 100%;
   margin-bottom: 1vh;
   margin-top: 1vh;
@@ -19,7 +19,7 @@
   font-size: 45rpx;
 }
 
-.progress{
+.progress {
   position: relative;
   width: 500rpx;
   padding-left: 100rpx;
@@ -27,6 +27,7 @@
 
   font-size: 35rpx;
 }
+
 .progress image {
   position: absolute;
   width: 70rpx;
@@ -36,7 +37,7 @@
 }
 
 /* 算术题样式 */
-.question{
+.question {
   width: 600rpx;
   margin-top: 2vh;
   margin-bottom: 2vh;
@@ -51,7 +52,7 @@
 }
 
 /* 键盘输入样式 */
-.keyboard{
+.keyboard {
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -64,7 +65,7 @@
   background-color: #8AD0E3;
 }
 
-.keyboardButton{
+.keyboardButton {
   position: relative;
   width: 118rpx;
   height: 118rpx;
@@ -74,7 +75,8 @@
   border: 1px solid;
   border-radius: 50%;
 }
-.keyboard image{
+
+.keyboard image {
   position: absolute;
   top: 0;
   right: 0;
@@ -84,7 +86,7 @@
 }
 
 /* 退出按钮 */
-.quit{
+.quit {
   display: flex;
   justify-content: center;
   align-items: center;

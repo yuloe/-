@@ -1,9 +1,9 @@
-.container{
+.container {
   display: flex;
   flex-flow: column;
 }
 
-.rank{
+.rank {
   display: flex;
   flex-wrap: wrap;
 
@@ -15,7 +15,7 @@
   margin-left: 100rpx;
 }
 
-.rankInfo{
+.rankInfo {
   width: 540rpx;
   height: 1em;
   margin-left: 10rpx;
@@ -24,7 +24,7 @@
   font-size: 16px;
 }
 
-.choose{
+.choose {
   display: flex;
   justify-content: center;
   align-items: center;
