@@ -14,8 +14,8 @@ function GetEvedayLog() {
       return value
     } else {
       SetEvedayLog({
-        needQuestions: 5,
-        needWrongAnswers: Math.min(10, GetWrongSet().length),
+        needQuestions: 20,
+        needWrongAnswers: Math.min(5, GetWrongSet().length),
         time: new Date().getDate()
       })
       return GetEvedayLog()

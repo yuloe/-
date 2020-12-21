@@ -10,7 +10,6 @@
     "pages/finish/finish",
     "pages/logs/logs",
     "pages/me/me",
-    "pages/test/test",
     "pages/typeChoose/typeChoose"
   ],
   "window": {
