@@ -8,7 +8,7 @@
   </view>
   <scroll-view class="wrongSetBlock" scroll-y="true">
     <view class="block" wx:for="{{wrongSet}}">
-      <view class="block1"><text>{{item.question}}</text></view>
+      <view class="block1"><text>{{item.question}}=?</text></view>
       <view class="block2"><text>正确答案是：{{item.correctResult}}  你的答案：{{item.result}}</text></view>
     </view>
   </scroll-view>

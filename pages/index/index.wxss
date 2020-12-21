@@ -33,9 +33,9 @@
 
   width: 250rpx;
   height: 10vh;
-  border: 1px solid #00b2ee;
+  border: 1px solid #d88a63;
   border-radius: 20rpx;
-  background-color: #87ceff;
+  background-color: #f5b619;
 
   font-size: 13px;
   justify-content: center;

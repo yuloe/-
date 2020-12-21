@@ -16,14 +16,21 @@
 
   width: 180rpx;
   height: 120rpx;
-  border: 1px solid;
   border-radius: 20rpx;
 
   font-size: 14px;
 }
 
-.active{
-  color: #d88a63;
+.active1{
+  border: 2px solid #fa8072;
+}
+
+.active2{
+  border: 2px solid #00bfff;
+}
+
+.active3{
+  border: 2px solid #8470ff;
 }
 
 .startTest {

@@ -1,16 +1,16 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/typeChoose/typeChoose",
+    "pages/test/test",
     "pages/notebook/notebook",
     "pages/guide/guide",
     "pages/about/about",
     "pages/result/result",
     "pages/question/question",
-    "pages/test/test",
     "pages/finish/finish",
     "pages/logs/logs",
-    "pages/me/me",
-    "pages/typeChoose/typeChoose"
+    "pages/me/me"
   ],
   "window": {
     "backgroundTextStyle": "light",
