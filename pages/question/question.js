@@ -4,9 +4,16 @@ const {
 const {
   GetEvedayLog
 } = require("../../utils/everydayquetion")
-const {GetTestLog,
+const {
+  GetTestLog,
   AddTestHistory,
-  GetHighScore} = require("../../utils/testhandler")
+  GetHighScore
+} = require("../../utils/testhandler")
+const {
+  GetUserInfo,
+  RefreshUserInfo,
+  AddRainbowCoin
+} = require("../../utils/userinfo")
 // pages/question/question.js
 const {
   GetQuestion,
@@ -105,8 +112,10 @@ Page({
       this.setData({
         isAccomplishTest: true
       })
-      if(appInstance.globalData.exeMode === 1){
-        AddTestHistory(appInstance.globalData.correctNum*2)
+      AddRainbowCoin()
+      console.log(GetUserInfo())
+      if (appInstance.globalData.exeMode === 1) {
+        AddTestHistory(appInstance.globalData.correctNum * 2)
       }
     }
   },
@@ -114,8 +123,8 @@ Page({
     this.setData({
       isAccomplishTest: true
     })
-    if(appInstance.globalData.exeMode === 1){
-      AddTestHistory(appInstance.globalData.correctNum*2)
+    if (appInstance.globalData.exeMode === 1) {
+      AddTestHistory(appInstance.globalData.correctNum * 2)
     }
   },
 
@@ -140,8 +149,8 @@ Page({
       that.setData({
         isTimeOver: true
       })
-      if(appInstance.globalData.exeMode === 1){
-        AddTestHistory(appInstance.globalData.correctNum*2)
+      if (appInstance.globalData.exeMode === 1) {
+        AddTestHistory(appInstance.globalData.correctNum * 2)
       }
       return
     }

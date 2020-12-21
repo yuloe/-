@@ -5,13 +5,20 @@ const {
   RefreshWrongSet,
   JudgeUserAnswer
 } = require("./answerhandler.js")
+const {
+  GetEvedayLog
+} = require("./everydayquetion.js")
+const {
+  GetUserInfo
+} = require("./userinfo")
 
 // get test log
 function GetTestLog() {
   try {
-    let value = wx.getStorageSync('testlog')
-    if(value) return value
-    else{
+    let id = GetEvedayLog().testLogID
+    let value = wx.getStorageSync(id)
+    if (value) return value
+    else {
       SetTestLog([])
       return GetTestLog()
     }
@@ -24,7 +31,8 @@ function GetTestLog() {
 // set test log
 function SetTestLog(testLog) {
   try {
-    wx.setStorageSync('testlog', testLog)
+    let id = GetEvedayLog().testLogID
+    wx.setStorageSync(id, testLog)
   } catch (e) {
     console.log("Error: Can not set testlog storage!\n")
     console.log(e)
@@ -48,11 +56,11 @@ function AddTestHistory(testScore) {
 }
 
 // get the highest test score
-function GetHighScore(){
+function GetHighScore() {
   let testHistory = GetTestLog()
   let highScore = 0
-  for(let i = 0; i < GetJSONLength(testHistory); i++){
-    if(testHistory[i].testScore > highScore){
+  for (let i = 0; i < GetJSONLength(testHistory); i++) {
+    if (testHistory[i].testScore > highScore) {
       highScore = testHistory[i].testScore
     }
   }
@@ -60,7 +68,7 @@ function GetHighScore(){
 }
 
 module.exports = {
-  GetTestLog:GetTestLog,
+  GetTestLog: GetTestLog,
   AddTestHistory: AddTestHistory,
   GetHighScore: GetHighScore
 }

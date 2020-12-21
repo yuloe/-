@@ -1,3 +1,7 @@
+const {
+  GetUserInfo
+} = require("./userinfo")
+
 // judge user answer
 function JudgeUserAnswer(question, userAnswer) {
   if (question.result == userAnswer) {
@@ -26,14 +30,15 @@ function GetJSONLength(json) {
 
 // get wrong question set
 function GetWrongSet() {
-  try{
-    let value = wx.getStorageSync('wrongset')
-    if(value) return value
-    else{
+  try {
+    let id = GetUserInfo().wrongSetID
+    let value = wx.getStorageSync(id)
+    if (value) return value
+    else {
       SetWrongSet([])
       return GetWrongSet()
     }
-  }catch(e){
+  } catch (e) {
     console.log("Error: Can not get wrongset storage!\n")
     console.log(e)
   }
@@ -42,7 +47,8 @@ function GetWrongSet() {
 // set wrong question set
 function SetWrongSet(wrongSet) {
   try {
-    wx.setStorageSync('wrongset', wrongSet)
+    let id = GetUserInfo().wrongSetID
+    wx.setStorageSync(id, wrongSet)
   } catch (error) {
     console.log("Error: Can not set wrongset storage!\n")
     console.log(error)

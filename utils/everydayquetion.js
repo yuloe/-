@@ -5,11 +5,16 @@ const {
   RefreshWrongSet,
   JudgeUserAnswer
 } = require("./answerhandler")
+const {
+  GetUserInfo
+} = require("./userinfo")
 
 // get everyday question log
 function GetEvedayLog() {
   try {
-    let value = wx.getStorageSync('everydaylog')
+    let id = GetUserInfo().everydayLogID
+    //console.log(id)
+    let value = wx.getStorageSync(id)
     if (value) {
       return value
     } else {
@@ -30,7 +35,8 @@ function GetEvedayLog() {
 function SetEvedayLog(everydayLog) {
   console.log(everydayLog)
   try {
-    wx.setStorageSync('everydaylog', everydayLog)
+    let id = GetUserInfo().everydayLogID
+    wx.setStorageSync(id, everydayLog)
   } catch (e) {
     console.log(e)
   }
@@ -54,7 +60,7 @@ function RefreshEverydayLog() {
     time: 0
   }
   everydayLog = GetEvedayLog()
-  console.log(everydayLog)
+  //console.log(everydayLog)
   if (everydayLog.time != new Date().getDate()) {
     ChangeEverydayLog(50, 10, new Date().getDate())
   }

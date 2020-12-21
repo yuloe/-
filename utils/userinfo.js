@@ -1,3 +1,5 @@
+const { GetEvedayLog } = require("./everydayquetion")
+
 const app = getApp()
 // get userinfo
 function GetUserInfo(){
@@ -5,7 +7,15 @@ function GetUserInfo(){
     let value = wx.getStorageSync('userinfo')
     if(value) return value
     else{
-      SetWrongSet([])
+      let userInfo = {
+        nickName: "未登录",
+        avatarUrl: "/static/unlogin.png",
+        rainbowCoin: 0,
+        wrongSetID: 'defaultwrongset',
+        testLogID: 'defaulttestlog',
+        everydayLogID: 'defaulteverydaylog'
+      }
+      SetUserInfo(userInfo)
       return GetUserInfo()
     }
   }catch(e){
@@ -35,21 +45,25 @@ function RefreshUserInfo(){
     everydayLogID: 'defaulteverydaylog'
   }
   if(app.globalData.hasUserInfo === true){
+    console.log(app.globalData.userInfo)
+    let rainbowCoin = GetUserInfo().rainbowCoin
     userInfo = {
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      rainbowCoin: 0,
+      rainbowCoin: rainbowCoin,
       wrongSetID: app.globalData.userInfo.nickName + 'wrongset',
       testLogID: app.globalData.userInfo.nickName + 'testlog',
       everydayLogID:  app.globalData.userInfo.nickName + 'everydaylog'
     }
   }
+  console.log(userInfo)
   SetUserInfo(userInfo)
 }
 
 // add rainbowcoin
 function AddRainbowCoin(){
   let userInfo = GetUserInfo()
+  console.log(userInfo.rainbowCoin)
   userInfo.rainbowCoin++
   SetUserInfo(userInfo)
 }
