@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
+    hasUserInfo: false,
     userInfo: null,
     typeMode: [0],
     typeModeForTest: [],

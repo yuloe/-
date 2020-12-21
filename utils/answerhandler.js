@@ -44,7 +44,7 @@ function SetWrongSet(wrongSet) {
   try {
     wx.setStorageSync('wrongset', wrongSet)
   } catch (error) {
-    console.log("Error: Can not set wrongSet storage!\n")
+    console.log("Error: Can not set wrongset storage!\n")
     console.log(error)
   }
 }
