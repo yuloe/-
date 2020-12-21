@@ -63,14 +63,29 @@
 
 .title {
   display: flex;
-  font-size: 16px;
+  justify-content: space-around;
+  font-size: 30rpx;
+
+  width: 100%;
 
   white-space: pre;
+  text-align: center;
 }
 
-.record {
+.record{
+  width: 20%;
+}
+.time{
+  width: 30%;
+}
+.score{
+  width: 20%;
+}
+
+.testHistoryRecord view{
   display: flex;
-  justify-content: center;
-  font-size: 16px;
+  justify-content: space-around;
+  font-size: 30rpx;
+
   white-space: pre;
 }

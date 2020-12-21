@@ -62,6 +62,7 @@ Page({
    */
   onShow: function () {
     this.setData({
+      currentRank: 0,
       testHistory: GetTestLog(),
       historyScore: GetHighScore(),
       type: appInstance.globalData.typeModeForTest
