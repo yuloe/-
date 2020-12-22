@@ -7,10 +7,6 @@ const {
 } = require("../../utils/everydayquetion.js")
 const {
   GetWrongSet,
-  SetWrongSet,
-  GetJSONLength,
-  RefreshWrongSet,
-  JudgeUserAnswer
 } = require("../../utils/answerhandler.js")
 const app = getApp()
 

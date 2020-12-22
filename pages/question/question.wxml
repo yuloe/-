@@ -1,6 +1,6 @@
 <!--pages/question/question.wxml-->
 <view class="container">
-  <view class="timer">倒计时 {{second}} 秒</view>
+  <view wx:if="{{second != '--'}}" class="timer">倒计时 {{second}} 秒</view>
   <view class="progress">
     <image src="/static/timer.png"></image>
     <text>做题进度 {{finished}}/{{questionNum}}</text>

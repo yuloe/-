@@ -1,14 +1,9 @@
 const {
-  GetQuestion,
   GetOrderedWrongQuestion,
-  GenerateQuestionByMode
 } = require("../../utils/questions")
 const {
   GetWrongSet,
-  SetWrongSet,
   GetJSONLength,
-  RefreshWrongSet,
-  JudgeUserAnswer
 } = require("../../utils/answerhandler.js")
 const app = getApp()
 // pages/result/result.js
@@ -19,7 +14,8 @@ Page({
    */
   data: {
     wrongSet: [],
-    correctNum: app.globalData.correctNum
+    correctNum: app.globalData.correctNum,
+    promptInfo: '全部答对了，你真棒！'
   },
 
   returnIndex: function () {
@@ -38,6 +34,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    console.log(app.globalData.wrongNum)
+    if(app.globalData.wrongNum){
+      this.setData({
+        promptInfo: "还要继续加油哦~"
+      })
+    }
     let tempArr = this.data.wrongSet
     this.setData({
       correctNum: app.globalData.correctNum

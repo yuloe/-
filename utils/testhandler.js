@@ -1,11 +1,4 @@
 const {
-  GetWrongSet,
-  SetWrongSet,
-  GetJSONLength,
-  RefreshWrongSet,
-  JudgeUserAnswer
-} = require("./answerhandler.js")
-const {
   GetUserInfo
 } = require("./userinfo")
 

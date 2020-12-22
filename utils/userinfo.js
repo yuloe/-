@@ -1,7 +1,3 @@
-const {
-  GetEvedayLog
-} = require("./everydayquetion")
-
 const app = getApp()
 // get userinfo
 function GetUserInfo() {

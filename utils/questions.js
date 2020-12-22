@@ -3,13 +3,11 @@ const {
   GetWrongSet,
   SetWrongSet,
   GetJSONLength,
-  RefreshWrongSet,
-  JudgeUserAnswer
+  RefreshWrongSet
 } = require("./answerhandler.js")
 const {
   GetEvedayLog,
-  ChangeEverydayLog,
-  RefreshEverydayLog
+  ChangeEverydayLog
 } = require("./everydayquetion.js")
 const app = getApp()
 

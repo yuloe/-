@@ -1,6 +1,5 @@
 const {
   GetTestLog,
-  AddTestHistory,
   GetHighScore
 } = require("../../utils/testhandler")
 const appInstance = getApp()

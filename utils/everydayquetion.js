@@ -1,9 +1,5 @@
 const {
-  GetWrongSet,
-  SetWrongSet,
-  GetJSONLength,
-  RefreshWrongSet,
-  JudgeUserAnswer
+  GetWrongSet
 } = require("./answerhandler")
 const {
   GetUserInfo

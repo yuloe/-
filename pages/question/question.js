@@ -7,13 +7,9 @@ const {
   GetEvedayLog
 } = require("../../utils/everydayquetion")
 const {
-  GetTestLog,
-  AddTestHistory,
-  GetHighScore
+  AddTestHistory
 } = require("../../utils/testhandler")
 const {
-  GetUserInfo,
-  RefreshUserInfo,
   AddRainbowCoin
 } = require("../../utils/userinfo")
 // pages/question/question.js
@@ -25,6 +21,13 @@ const {
 } = require("../../utils/questions")
 
 const appInstance = getApp()
+const correctAudio = wx.createInnerAudioContext()
+correctAudio.autoplay = false
+correctAudio.src = "/static/correct.mp3"
+
+const wrongAudio = wx.createInnerAudioContext()
+wrongAudio.autoplay = false
+wrongAudio.src = "/static/wrong.mp3"
 
 Page({
   /*页面的初始数据*/
@@ -82,6 +85,7 @@ Page({
         icon: 'none',
         title: '回答正确'
       })
+      correctAudio.play()
       FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
     } else {
       appInstance.globalData.wrongNum++
@@ -89,6 +93,7 @@ Page({
         icon: 'none',
         title: '回答错误'
       })
+      wrongAudio.play()
       FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
     }
     let finished = this.data.questionNum - this.data.finished

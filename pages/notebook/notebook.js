@@ -1,14 +1,9 @@
 const {
-  GetQuestion,
-  GetOrderedWrongQuestion,
-  GenerateQuestionByMode
+  GetOrderedWrongQuestion
 } = require("../../utils/questions")
 const {
   GetWrongSet,
-  SetWrongSet,
-  GetJSONLength,
-  RefreshWrongSet,
-  JudgeUserAnswer
+  RefreshWrongSet
 } = require("../../utils/answerhandler.js")
 const appInstance = getApp()
 // pages/notebook/notebook.js
