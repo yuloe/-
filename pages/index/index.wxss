@@ -22,7 +22,7 @@
   width: 300rpx;
   height: 10vh;
   border-radius: 20rpx;
-  font-size: 30px;
+  font-size: 25px;
 
   justify-content: center;
   align-items: center;
