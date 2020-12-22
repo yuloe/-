@@ -42,9 +42,17 @@ Page({
     console.log(this.data.wrongSet)
   },
   reviewQuestion: function () {
-    appInstance.globalData.exeMode = 2
-    wx.redirectTo({
-      url: '/pages/question/question',
-    })
+    if (GetWrongSet().length <= 0) {
+      wx.showToast({
+        icon: 'none',
+        title: '还没有错题哦',
+        duration: 1500
+      })
+    } else {
+      appInstance.globalData.exeMode = 2
+      wx.redirectTo({
+        url: '/pages/question/question',
+      })
+    }
   }
 })

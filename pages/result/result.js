@@ -35,9 +35,9 @@ Page({
     })
   },
   /**
-   * 生命周期函数--监听页面显示
+   * 生命周期函数--监听页面加载
    */
-  onShow: function () {
+  onLoad: function () {
     let tempArr = this.data.wrongSet
     this.setData({
       correctNum: app.globalData.correctNum
