@@ -18,19 +18,25 @@
   height: 120rpx;
   border-radius: 20rpx;
 
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .active1 {
-  border: 2px solid #fa8072;
+  border: 6px solid #fa8072;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .active2 {
-  border: 2px solid #00bfff;
+  border: 6px solid #00bfff;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .active3 {
-  border: 2px solid #8470ff;
+  border: 6px solid #8470ff;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .startTest {
@@ -41,7 +47,7 @@
   border: 1px solid #d88a63;
   border-radius: 20rpx;
   background-color: #f5b619;
-  font-size: 16px;
+  font-size: 30px;
 
   justify-content: center;
   align-items: center;
