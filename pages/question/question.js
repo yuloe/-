@@ -24,10 +24,12 @@ const appInstance = getApp()
 const correctAudio = wx.createInnerAudioContext()
 correctAudio.autoplay = false
 correctAudio.src = "/static/correct.mp3"
+correctAudio.volume = 0.6
 
 const wrongAudio = wx.createInnerAudioContext()
 wrongAudio.autoplay = false
 wrongAudio.src = "/static/wrong.mp3"
+wrongAudio.volume = 0.6
 
 Page({
   /*页面的初始数据*/
@@ -81,19 +83,21 @@ Page({
     let result = parseInt(this.data.result)
     if (JudgeUserAnswer(this.data.question, result)) {
       appInstance.globalData.correctNum++
+      correctAudio.play()
       wx.showToast({
         icon: 'none',
-        title: '回答正确'
+        title: '回答正确',
+        duration: 500
       })
-      correctAudio.play()
       FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
     } else {
       appInstance.globalData.wrongNum++
+      wrongAudio.play()
       wx.showToast({
         icon: 'none',
-        title: '回答错误'
+        title: '回答错误',
+        duration: 500
       })
-      wrongAudio.play()
       FinshQuestion(this.data.questiontype, appInstance.globalData.exeMode)
     }
     let finished = this.data.questionNum - this.data.finished
