@@ -34,6 +34,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    console.log(app.globalData.bgmAudio)
+    app.globalData.bgmAudio.play()
     console.log(app.globalData.wrongNum)
     if(app.globalData.wrongNum){
       this.setData({
