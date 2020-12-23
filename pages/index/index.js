@@ -15,7 +15,7 @@ Page({
     rank: 0,
     typeChoose: false,
     queShow: "",
-    queType: ["10以内加减法", "20以内加减法", "100以内加减法", "表内乘法", "表内除法", "混合运算", "万以内加减法", "复杂乘除", "多位数乘一位数"],
+    queType: ["10以内加减法", "20以内加减法", "100以内加减法", "表内乘法", "表内除法", "混合运算", "万以内加减法", "多位数乘一位数", "复杂乘除"],
     type: [],
     need2DoNum: 0,
     reviewNum: 0
@@ -61,6 +61,7 @@ Page({
   /* 生命周期函数 */
   onShow: function () {
     RefreshEverydayLog()
+    console.log(GetEvedayLog())
     this.setData({
       need2DoNum: GetEvedayLog().needQuestions,
       reviewNum: GetEvedayLog().needWrongAnswers

@@ -58,7 +58,7 @@ function RefreshEverydayLog() {
   everydayLog = GetEvedayLog()
   //console.log(everydayLog)
   if (everydayLog.time != new Date().getDate()) {
-    ChangeEverydayLog(25, Math.min(5, GetWrongSet().length), new Date().getDate())
+    ChangeEverydayLog(20, Math.min(5, GetWrongSet().length), new Date().getDate())
   }
 }
 

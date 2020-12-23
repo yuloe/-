@@ -1,10 +1,11 @@
 const {
   JudgeUserAnswer,
   GetWrongSet,
-  SetWrongSet
+  SetWrongSet,
+  RefreshWrongSet
 } = require("../../utils/answerhandler")
 const {
-  GetEvedayLog
+  GetEvedayLog, RefreshEverydayLog, ChangeEverydayLog
 } = require("../../utils/everydayquetion")
 const {
   AddTestHistory
@@ -120,6 +121,8 @@ Page({
       } else {
         let wrongSet = GetWrongSet()
         wrongSet[this.data.finished - 1].reviewTimes++
+        RefreshWrongSet()
+        console.log(wrongSet)
         SetWrongSet(wrongSet)
         this.setData({
           question: wrongSet[this.data.finished].question,
@@ -138,6 +141,7 @@ Page({
       } else if (appInstance.globalData.exeMode === 2) {
         let wrongSet = GetWrongSet()
         wrongSet[this.data.finished - 1].reviewTimes++
+        RefreshWrongSet()
         SetWrongSet(wrongSet)
         coins = 0
       }
@@ -233,4 +237,11 @@ Page({
       this.countdown(this)
     }
   },
+  onUnload: function(){
+    RefreshWrongSet()
+    let everydayLog = GetEvedayLog()
+    ChangeEverydayLog(everydayLog.needQuestions, Math.min(everydayLog.needWrongAnswers,GetWrongSet().length),new Date().getDate())
+    console.log(GetWrongSet())
+    console.log(GetEvedayLog())
+  }
 })
