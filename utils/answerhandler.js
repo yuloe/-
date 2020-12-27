@@ -19,15 +19,6 @@ function JudgeUserAnswer(question, userAnswer) {
   }
 }
 
-// get json length
-function GetJSONLength(json) {
-  var jsonLength = 0
-  for (var i in json) {
-    jsonLength++
-  }
-  return jsonLength
-}
-
 // get wrong question set
 function GetWrongSet() {
   try {
@@ -69,7 +60,6 @@ function RefreshWrongSet() {
 module.exports = {
   GetWrongSet: GetWrongSet,
   SetWrongSet: SetWrongSet,
-  GetJSONLength: GetJSONLength,
   RefreshWrongSet: RefreshWrongSet,
   JudgeUserAnswer: JudgeUserAnswer
 }

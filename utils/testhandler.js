@@ -32,8 +32,9 @@ function SetTestLog(testLog) {
 // add test history
 function AddTestHistory(testScore) {
   let time = new Date()
+  console.log(time)
   var testHistory = {
-    testTime: String(time.getFullYear()) + '/' + String(time.getMonth()) + '/' + String(time.getDate()),
+    testTime: String(time.getFullYear()) + '/' + String(time.getMonth()+1) + '/' + String(time.getDate()),
     testScore: testScore
   }
   var testLog = GetTestLog()
